@@ -54,8 +54,8 @@ export function Charge({ id, className = "" }: { id: QuarterId; className?: stri
       {id === "spirit" && (
         <g fill="#ffffff" stroke="#8a6412" strokeWidth="2.4" strokeLinejoin="round">
           {/* A dove descending: wings spread, head below. */}
-          <path d="M56 50 C40 44 21 30 8 11 C33 15 50 27 61 42 Z" />
-          <path d="M64 50 C80 44 99 30 112 11 C87 15 70 27 59 42 Z" />
+          <path d="M58 54 C38 50 16 34 4 9 C30 13 52 26 63 45 Z" />
+          <path d="M62 54 C82 50 104 34 116 9 C90 13 68 26 57 45 Z" />
           <path d="M60 34 C72 43 76 61 72 79 C69 91 51 91 48 79 C44 61 48 43 60 34 Z" />
           <circle cx="60" cy="88" r="11" />
           <path d="M60 97 l9 13 l-18 0 Z" fill="#d9a52a" />
@@ -158,11 +158,13 @@ export default function Seal({ uid, className = "" }: { uid: string; className?:
           <path d="M180 44 C272 112 314 180 314 240 C314 300 272 368 180 436 C88 368 46 300 46 240 C46 180 88 112 180 44 Z" />
         </clipPath>
         {/*
-         * Baseline for the legend: up the left side, over the top, down the right.
-         * The two control points either side of the apex share the apex's y, so the
-         * tangent is horizontal there — otherwise the corner opens a gap mid-word.
+         * The legend runs up the left side, over the top and down the right, as it
+         * does on their seal. A vesica has a point at the apex, so one continuous
+         * textPath breaks a word open there — it is two paths meeting at the point
+         * instead, with the words ending and starting on either side of it.
          */}
-        <path id={band} d="M30 338 C14 250 62 26 180 26 C298 26 346 250 330 338" fill="none" />
+        <path id={`${band}-l`} d="M30 338 C16 252 72 108 179 27" fill="none" />
+        <path id={`${band}-r`} d="M181 27 C288 108 344 252 330 338" fill="none" />
       </defs>
 
       {/* Outer rim and the white band that carries the legend. */}
@@ -173,16 +175,18 @@ export default function Seal({ uid, className = "" }: { uid: string; className?:
         strokeWidth="5"
       />
 
-      <text
-        fill="#141414"
-        fontSize="14"
-        className="seal-type"
-        style={{ letterSpacing: "0.04em" }}
-      >
-        <textPath href={`#${band}`} startOffset="50%" textAnchor="middle">
-          THE GREAT SEAL OF HOPE COVENANT KINGDOM FELLOWSHIP
-        </textPath>
-      </text>
+      <g fill="#141414" fontSize="14" className="seal-type" style={{ letterSpacing: "0.04em" }}>
+        <text>
+          <textPath href={`#${band}-l`} startOffset="100%" textAnchor="end">
+            THE GREAT SEAL OF HOPE
+          </textPath>
+        </text>
+        <text>
+          <textPath href={`#${band}-r`} startOffset="0%" textAnchor="start">
+            COVENANT KINGDOM FELLOWSHIP
+          </textPath>
+        </text>
+      </g>
 
       {/* The black field. */}
       <path
