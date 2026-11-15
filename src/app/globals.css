@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+/* TODO(demo) colours from THEIR logo, sign, building or old site. */
+:root {
+  --paper: #ffffff;
+  --ink: #111111;
+  --accent: #444444;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-accent: var(--accent);
+  /* Set by next/font/local variables in layout.tsx */
+  --font-display: var(--font-display, ui-serif, Georgia, serif);
+  --font-sans: var(--font-body, ui-sans-serif, system-ui, sans-serif);
+}
+
+html {
+  /* Do not set scroll-behavior: smooth here; it blanks full-page screenshots. */
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+}
+
+/* Custom classes must live in @layer components or Tailwind utilities can't override them. */
+@layer components {
+  /* Times and dates always in the sans: display serifs misread digits (10:30 reads 10:50). */
+  .time {
+    font-family: var(--font-sans);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Scroll reveals. Content is visible without JavaScript. */
+  .js [data-reveal]:not([data-in]) {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  .js [data-reveal] {
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .js [data-reveal]:not([data-in]) {
+      opacity: 1;
+      transform: none;
+    }
+  }
+}
