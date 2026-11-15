@@ -52,17 +52,13 @@ export function Charge({ id, className = "" }: { id: QuarterId; className?: stri
       )}
 
       {id === "spirit" && (
-        <g>
-          {/* A dove descending: wings sweeping up, head below. */}
-          <path
-            d="M60 44 C50 32 32 21 13 16 C21 38 37 56 51 67 C52 74 52 81 54 88 L66 88 C68 81 68 74 69 67 C83 56 99 38 107 16 C88 21 70 32 60 44 Z"
-            fill="#ffffff"
-            stroke="#8a6412"
-            strokeWidth="2.2"
-            strokeLinejoin="round"
-          />
-          <circle cx="60" cy="96" r="9.5" fill="#ffffff" stroke="#8a6412" strokeWidth="2.2" />
-          <path d="M60 104 l7 10 l-14 0 Z" fill="#d9a52a" />
+        <g fill="#ffffff" stroke="#8a6412" strokeWidth="2.4" strokeLinejoin="round">
+          {/* A dove descending: wings spread, head below. */}
+          <path d="M56 50 C40 44 21 30 8 11 C33 15 50 27 61 42 Z" />
+          <path d="M64 50 C80 44 99 30 112 11 C87 15 70 27 59 42 Z" />
+          <path d="M60 34 C72 43 76 61 72 79 C69 91 51 91 48 79 C44 61 48 43 60 34 Z" />
+          <circle cx="60" cy="88" r="11" />
+          <path d="M60 97 l9 13 l-18 0 Z" fill="#d9a52a" />
         </g>
       )}
 
@@ -161,8 +157,12 @@ export default function Seal({ uid, className = "" }: { uid: string; className?:
         <clipPath id={clip}>
           <path d="M180 44 C272 112 314 180 314 240 C314 300 272 368 180 436 C88 368 46 300 46 240 C46 180 88 112 180 44 Z" />
         </clipPath>
-        {/* Baseline for the legend: up the left side, over the top, down the right. */}
-        <path id={band} d="M30 338 C16 252 74 108 180 26 C286 108 344 252 330 338" fill="none" />
+        {/*
+         * Baseline for the legend: up the left side, over the top, down the right.
+         * The two control points either side of the apex share the apex's y, so the
+         * tangent is horizontal there — otherwise the corner opens a gap mid-word.
+         */}
+        <path id={band} d="M30 338 C14 250 62 26 180 26 C298 26 346 250 330 338" fill="none" />
       </defs>
 
       {/* Outer rim and the white band that carries the legend. */}
