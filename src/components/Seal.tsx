@@ -53,16 +53,16 @@ export function Charge({ id, className = "" }: { id: QuarterId; className?: stri
 
       {id === "spirit" && (
         <g>
-          {/* A dove descending: wings raised, head below. */}
+          {/* A dove descending: wings sweeping up, head below. */}
           <path
-            d="M18 26 C34 38 48 52 56 68 C64 52 78 38 94 26 C84 46 74 60 66 76 C63 82 57 82 54 76 C46 60 36 46 18 26 Z"
+            d="M60 44 C50 32 32 21 13 16 C21 38 37 56 51 67 C52 74 52 81 54 88 L66 88 C68 81 68 74 69 67 C83 56 99 38 107 16 C88 21 70 32 60 44 Z"
             fill="#ffffff"
-            stroke="#c8b98f"
-            strokeWidth="1.5"
+            stroke="#8a6412"
+            strokeWidth="2.2"
             strokeLinejoin="round"
           />
-          <circle cx="60" cy="88" r="9" fill="#ffffff" stroke="#c8b98f" strokeWidth="1.5" />
-          <path d="M60 97 l4 8 l-8 0 Z" fill="#e0a83a" />
+          <circle cx="60" cy="96" r="9.5" fill="#ffffff" stroke="#8a6412" strokeWidth="2.2" />
+          <path d="M60 104 l7 10 l-14 0 Z" fill="#d9a52a" />
         </g>
       )}
 
@@ -175,9 +175,9 @@ export default function Seal({ uid, className = "" }: { uid: string; className?:
 
       <text
         fill="#141414"
-        fontSize="17.5"
+        fontSize="14"
         className="seal-type"
-        style={{ letterSpacing: "0.1em" }}
+        style={{ letterSpacing: "0.04em" }}
       >
         <textPath href={`#${band}`} startOffset="50%" textAnchor="middle">
           THE GREAT SEAL OF HOPE COVENANT KINGDOM FELLOWSHIP
@@ -193,21 +193,14 @@ export default function Seal({ uid, className = "" }: { uid: string; className?:
       />
 
       <g clipPath={`url(#${clip})`}>
-        {/* Key, left, and crosier, right — crossed behind the mitre. */}
-        <g stroke={`url(#${gold})`} fill={`url(#${gold})`}>
-          <g strokeWidth="7" strokeLinecap="round">
-            <path d="M136 252 L104 134" fill="none" />
-          </g>
-          <circle cx="139" cy="265" r="13" fill="none" strokeWidth="7" />
-          <path d="M104 134 l-15 7 M110 156 l-15 7" strokeWidth="6" strokeLinecap="round" fill="none" />
+        {/* Key, dexter, and crosier, sinister — crossed behind the mitre. */}
+        <g stroke={`url(#${gold})`} fill="none" strokeLinecap="round">
+          <circle cx="104" cy="120" r="14" strokeWidth="7" />
+          <path d="M112 133 L152 218" strokeWidth="7" />
+          <path d="M131 174 l-17 8 M140 192 l-17 8" strokeWidth="6" />
 
-          <path d="M224 252 L250 150" fill="none" strokeWidth="7" strokeLinecap="round" />
-          <path
-            d="M250 150 C262 112 224 100 216 124 C212 138 226 148 236 140"
-            fill="none"
-            strokeWidth="7"
-            strokeLinecap="round"
-          />
+          <path d="M208 218 L246 132" strokeWidth="7" />
+          <path d="M246 132 C257 108 239 92 225 101 C214 108 215 123 227 127" strokeWidth="7" />
         </g>
 
         {/* Lappets hanging from the mitre, behind the shield. */}
@@ -272,11 +265,12 @@ export default function Seal({ uid, className = "" }: { uid: string; className?:
 
         <text
           x="180"
-          y="412"
+          y="400"
           textAnchor="middle"
           fill="#f0cf70"
-          fontSize="18"
+          fontSize="13"
           className="seal-type"
+          style={{ letterSpacing: "0.06em" }}
         >
           AD MMXVI
         </text>

@@ -119,7 +119,6 @@ export default function Visit() {
             <iframe
               src={embed}
               title={`Map to ${church.name}`}
-              loading="lazy"
               className="h-[340px] w-full md:h-full"
               referrerPolicy="no-referrer-when-downgrade"
             />

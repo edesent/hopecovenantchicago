@@ -83,9 +83,9 @@ export default function Teaching() {
       <section className="bg-paper">
         <div className="mx-auto max-w-5xl px-5 py-16 md:py-20">
           <p className="eyebrow text-gold-deep">Recent teaching</p>
-          <ul className="pt-8">
+          <ul className="pt-8" data-reveal>
             {library.map((t) => (
-              <li key={t.title} className="border-t border-royal/15 py-5" data-reveal>
+              <li key={t.title} className="border-t border-royal/15 py-5">
                 <p className="display text-[clamp(1.2rem,3vw,1.6rem)] leading-snug text-royal-deep">
                   {t.title}
                 </p>

@@ -25,10 +25,10 @@ export default function Home() {
     <>
       {/* ── The Great Seal ───────────────────────────────────────────── */}
       <section className="royal-field relative overflow-hidden text-white">
-        <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 py-16 md:grid-cols-[1.05fr_0.95fr] md:gap-10 md:py-24">
+        <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 py-16 md:grid-cols-[1.15fr_0.85fr] md:gap-12 md:py-24">
           <div>
             <p className="eyebrow text-gold-light/90">Chicago, Illinois · AD MMXVI</p>
-            <h1 className="display pt-6 text-[clamp(2rem,6.2vw,3.6rem)]">
+            <h1 className="display pt-6 text-[clamp(1.9rem,5.4vw,3.15rem)]">
               Excellence is our commitment.
               <br />
               Integrity is our standard.
@@ -112,12 +112,11 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="mt-12 grid gap-px overflow-hidden rounded-sm bg-gold/60 sm:grid-cols-2">
+          <div className="mt-12 grid gap-px overflow-hidden rounded-sm bg-gold/60 sm:grid-cols-2" data-reveal>
             {quarters.map((q) => (
               <Link
                 key={q.id}
                 href={q.href}
-                data-reveal
                 className={`${TINT[q.id as QuarterId]} group flex gap-5 p-8 transition-colors hover:brightness-125 sm:p-10`}
               >
                 <Charge id={q.id as QuarterId} className="h-14 w-14 shrink-0 sm:h-16 sm:w-16" />
