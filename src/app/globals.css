@@ -1,19 +1,41 @@
 @import "tailwindcss";
 
-/* TODO(demo) colours from THEIR logo, sign, building or old site. */
+/*
+ * Colours sampled from their own YouTube banner: a royal-violet field
+ * (#3b068c through #751cce) behind the Great Seal, with the seal and rules
+ * in gold. Their course flyers use the same gold on royal blue.
+ */
 :root {
-  --paper: #ffffff;
-  --ink: #111111;
-  --accent: #444444;
+  --paper: #fbf8ff;
+  --ink: #1d0a3a;
+  --accent: #3b068c;
+
+  --royal: #3b068c;
+  --royal-deep: #22044f;
+  --royal-bright: #751cce;
+  --royal-ink: #140230;
+  --gold: #d9a52a;
+  --gold-light: #f6e09b;
+  --gold-deep: #9a6f12;
+  --cream: #f7efd8;
 }
 
 @theme inline {
   --color-paper: var(--paper);
   --color-ink: var(--ink);
   --color-accent: var(--accent);
+  --color-royal: var(--royal);
+  --color-royal-deep: var(--royal-deep);
+  --color-royal-bright: var(--royal-bright);
+  --color-royal-ink: var(--royal-ink);
+  --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
+  --color-gold-deep: var(--gold-deep);
+  --color-cream: var(--cream);
   /* Set by next/font/local variables in layout.tsx */
-  --font-display: var(--font-display, ui-serif, Georgia, serif);
-  --font-sans: var(--font-body, ui-sans-serif, system-ui, sans-serif);
+  --font-display: var(--font-playfair, ui-serif, Georgia, serif);
+  --font-seal: var(--font-cinzel, ui-serif, Georgia, serif);
+  --font-sans: var(--font-archivo, ui-sans-serif, system-ui, sans-serif);
 }
 
 html {
@@ -33,6 +55,106 @@ body {
   .time {
     font-family: var(--font-sans);
     font-variant-numeric: tabular-nums;
+  }
+
+  .display {
+    font-family: var(--font-display);
+    font-weight: 700;
+    line-height: 1.02;
+    letter-spacing: -0.015em;
+  }
+
+  .seal-type {
+    font-family: var(--font-seal);
+    font-weight: 700;
+    letter-spacing: 0.14em;
+  }
+
+  /* The royal field from their banner: violet, lit from the centre-left. */
+  .royal-field {
+    background:
+      radial-gradient(120% 95% at 22% 38%, #8b31e4 0%, #5a10b8 34%, #3b068c 62%, #22044f 100%);
+  }
+
+  .royal-field-flat {
+    background: linear-gradient(180deg, #2c0569 0%, #3b068c 55%, #22044f 100%);
+  }
+
+  /* Gold lettering. Gradient text plus text-shadow turns to mud, so the glow is
+     a drop-shadow filter on the element instead. */
+  .gold-text {
+    color: var(--gold-light);
+    filter: drop-shadow(0 2px 10px rgba(217, 165, 42, 0.35));
+  }
+
+  .gold-rule {
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold) 18%, var(--gold-light) 50%, var(--gold) 82%, transparent);
+  }
+
+  .btn-gold {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: linear-gradient(180deg, #f3d882 0%, #d9a52a 55%, #b8861b 100%);
+    color: #2a0a1e;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-size: 0.8125rem;
+    padding: 0.85rem 1.5rem;
+    border-radius: 2px;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset, 0 6px 18px rgba(0, 0, 0, 0.22);
+  }
+
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 1px solid rgba(246, 224, 155, 0.5);
+    color: var(--gold-light);
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-size: 0.8125rem;
+    padding: 0.85rem 1.5rem;
+    border-radius: 2px;
+  }
+
+  .btn-royal {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--royal);
+    color: #fff;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-size: 0.8125rem;
+    padding: 0.85rem 1.5rem;
+    border-radius: 2px;
+  }
+
+  .eyebrow {
+    font-family: var(--font-seal);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.26em;
+    font-size: 0.6875rem;
+  }
+
+  .field {
+    width: 100%;
+    border: 1px solid #d8cde9;
+    background: #fff;
+    border-radius: 2px;
+    padding: 0.7rem 0.85rem;
+    font-size: 1rem;
+    color: var(--ink);
+  }
+  .field:focus {
+    outline: 2px solid var(--royal-bright);
+    outline-offset: 1px;
   }
 
   /* Scroll reveals. Content is visible without JavaScript. */

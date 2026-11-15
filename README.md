@@ -1,9 +1,13 @@
-# TODO(demo) Church name, Town, State
+# HOPE Covenant Kingdom Fellowship International — Chicago, IL
 
-Website concept for TODO(demo) church name, street address. TODO(demo) pastor.
-Requested through the Small Church Grant (TODO(demo) month year). TODO(demo) what they asked for, in their words.
+Website concept for HOPE Covenant Kingdom Fellowship International, 740 E 43rd St, Chicago, IL 60653.
+Bishop Mikal D. Boddie, D.Div., Establishmentarian and Presiding Prelate.
+Requested through the Small Church Grant (November 2026). The request form did not name a
+particular feature, so the site was built around the three things the fellowship actually does
+every week — teaching, gathering, and reaching the neighbourhood — with giving and a prayer line
+one tap away.
 
-Preview: https://SLUG.elijahdesent.com (hidden from search engines; see "Going live").
+Preview: https://hopecovenantchicago.elijahdesent.com (hidden from search engines; see "Going live").
 
 ## Read this before editing (for people and AI assistants)
 
@@ -15,38 +19,95 @@ Preview: https://SLUG.elijahdesent.com (hidden from search engines; see "Going l
 - **Deploys:** every push to `main` auto-deploys on Vercel. Run `npm run build` first. If the type-check fails, the live site does not update.
 - **Commit email** must be `Elimark1611@gmail.com`, or Vercel blocks the deploy.
 - **Fonts are self-hosted** in `src/fonts/` (`bash scripts/get-font.sh "<Family>" <weight>`). Don’t switch to `next/font/google`.
+  Playfair Display 700 for display, Cinzel 700 for the seal and the small caps labels, Archivo for everything else.
 - **Times are set in the sans** (`.time` class), never in a display serif.
 
 ## Where things live
 
 | To change… | Edit |
 | --- | --- |
-| Service times | `services` in `src/lib/site.ts` |
-| A special event (drops off by itself after `endsOn`) | `events` in `src/lib/site.ts` |
-| Online giving | `giving.url` in `src/lib/site.ts` |
-| Address, phone, Facebook | `church` in `src/lib/site.ts` |
-| Pastor | `pastor` in `src/lib/site.ts` |
+| Service times | `services` in `src/lib/site.ts` (currently empty — see below) |
+| A course or event (drops off by itself after `endsOn`) | `events` in `src/lib/site.ts` |
+| Online giving / the Zelle details | `giving` in `src/lib/site.ts` |
+| Address, phone, Facebook, YouTube | `church` in `src/lib/site.ts` |
+| The Bishop | `pastor` in `src/lib/site.ts` |
+| The four quarters of the shield | `quarters` in `src/lib/site.ts` |
+| The vision statement | `vision` in `src/lib/site.ts` |
 | Navigation | `nav` in `src/lib/site.ts` |
+| Recent teaching titles on `/` and `/teaching` | the `recent` / `library` arrays in those page files |
 | Photos | `public/photos/`. Alt text sits beside each image where it is used |
 
 ## How it works
 
-TODO(demo) the concept in two or three bullets: what it is, where it came from in the church’s own material, and which component draws it.
-
-- **Events expire by themselves.** Each event has `endsOn`; the pages re-render hourly (`revalidate = 3600` in `layout.tsx`). Keep that line.
-- **Forms** post to `/api/form`, which sends to the Slack/Teams webhook in `FORM_WEBHOOK_URL`. Until that env var is set, the form tells people to call the church. Spam defences: signed load-time token, honeypot, rate limit, no links in free text.
+- **The concept is the Great Seal.** The fellowship already has a real coat of arms — it is on
+  the Facebook page, the YouTube banner and the course flyers: a pointed oval reading
+  THE GREAT SEAL OF HOPE COVENANT KINGDOM FELLOWSHIP, a mitre over a crossed key and crosier,
+  the year AD MMXVI, and a shield quartered with an open book, a descending dove, grapes on the
+  vine and the globe. It has been **redrawn as clean SVG** in `src/components/Seal.tsx` — same
+  concept, same charges, same gold — so it is sharp at any size and needs no image file.
+- **The shield is the site map.** The four charges are the four things the fellowship gives itself
+  to: the Word, the Spirit, the Covenant, the World. They are listed in `quarters` in `site.ts`
+  and rendered on the home page as a quartered block in the four tinctures, each one a link.
+  `Charge` in `Seal.tsx` draws any single charge at any size; `Shield` draws the small mark used
+  in the header, the footer and the 404 page.
+- **Every instance of the seal or shield needs its own `uid` prop.** Two copies of an inline SVG
+  on one page cannot share gradient and clip-path ids.
+- **The motto is the headline.** “Excellence is our commitment. Integrity is our standard. The
+  Kingdom is our assignment.” is printed on the fellowship’s own course flyers. It is the hero.
+- **Colours** are sampled from the real YouTube banner: royal violet `#3b068c`–`#751cce` with gold.
+- **Courses expire by themselves.** Each entry in `events` has `endsOn`; the pages re-render hourly
+  (`revalidate = 3600` in `layout.tsx`). The Sacraments course is set to drop off after 15 December
+  2026 — it disappears from the home page, `/teaching` and `/visit` with no edit. Keep that line.
+- **Forms** post to `/api/form`, which sends to the Slack/Teams webhook in `FORM_WEBHOOK_URL`. Until
+  that env var is set, the form tells people to call the church. Spam defences: signed load-time
+  token, honeypot, rate limit, no links in free text.
 
 ## Confirm with the church
 
-TODO(demo) every fact that came from one source only, conflicts between sources, and every blank (service times, phone, giving link, event dates, photos of people who are not identified).
+Everything below went onto the site from one source, or is missing. Please check it.
+
+1. **Sunday worship time — missing.** No service time is published anywhere online, so none is
+   stated. `/visit` says only what we could verify: that Sunday services go out live on the
+   Facebook page. Add the real time to `services` in `site.ts` and it appears on the home page,
+   `/visit` and in “what’s next” automatically:
+   `{ id: "worship", name: "Sunday Worship", dow: 0, time24: "11:00", rule: "Every Sunday", note: "Streamed live on Facebook." }`
+2. **Where the fellowship physically gathers.** Google Maps and the chamber-of-commerce listing
+   give **740 E 43rd St, Chicago, IL 60653**, which matches the address on the grant form (the form
+   adds “Apt. 1410”). MapQuest and Yelp still carry an older **820 E 75th St, Chicago, IL 60619**.
+   The site uses 740 E 43rd St and `/visit` asks people to call ahead rather than claiming it is a
+   sanctuary. Correct the address in `church` if that is wrong.
+3. **Phone.** Two numbers are in circulation: (773) 569-6546 (on the grant form, and in the
+   fellowship’s own media-ministry post) and (773) 234-7585 (on the business listings). The site
+   uses the first. It is stored base64 in `church.phoneB64`.
+4. **Zelle.** No Zelle handle is published anywhere, so none was invented. `/give` says offerings
+   are received by Zelle and asks people to call or write for the details. Put the real Zelle email
+   or phone in `giving.zelle` and the page prints it.
+5. **The Sacraments course.** The flyer says “6 Week Virtual Course”, “Tuesdays at 6:00 pm”,
+   beginning Tuesday 10 November. That was read as six consecutive Tuesdays ending 15 December, and
+   `endsOn` is set to that date. The platform (Zoom, Facebook Live, conference line) is not stated
+   anywhere, so `/teaching` invites people to ask for the link instead of naming one. Correct
+   `events` in `site.ts` if either is wrong.
+6. **Photographs.** There are no photographs of the building, the congregation or a service
+   anywhere online. The only photograph on the site is Bishop Boddie, cropped from the fellowship’s
+   own Hour of Empowerment broadcast graphic (`public/photos/bishop-boddie.jpg`). Send photographs
+   of the fellowship and they go straight in. Nothing here is stock and nothing is AI-generated.
+7. **Founding year.** 2016, read from “AD MMXVI” at the foot of the seal. Not confirmed elsewhere.
+8. **The FAM Institute Bible College & Seminary** is mentioned on `/teaching` on the strength of a
+   single post about its 2026 graduating class. Confirm the relationship before it goes live.
+9. **Teaching titles** on `/` and `/teaching` were transcribed from the YouTube channel. They are
+   not yet linked to the individual videos — add the links when convenient.
 
 ## Rules that keep the site honest
 
 - Real church photos only. No stock photos and no AI images.
-- No “Watch live” button unless they really stream.
-- The phone number is stored base64 (`phoneB64`) and assembled in the browser by `src/components/Phone.tsx`. Never type the digits into a page.
+- No “Watch live” button unless they really stream. The fellowship does stream Sunday services to
+  Facebook, so `/visit` points there — but it does not promise a time we could not verify.
+- The phone number is stored base64 (`phoneB64`) and assembled in the browser by
+  `src/components/Phone.tsx`. Never type the digits into a page.
 - No raw email addresses on the site. Link to `/contact`.
 
 ## Going live
 
-Set `NEXT_PUBLIC_SITE_URL` to the real domain in Vercel. That turns off the noindex robots rule and fixes canonicals and JSON-LD in one move. **Delete the two demo-tracking lines in `src/app/layout.tsx`** (the comment and the `demo.js` script) when the church pays or goes live.
+Set `NEXT_PUBLIC_SITE_URL` to the real domain in Vercel. That turns off the noindex robots rule and
+fixes canonicals and JSON-LD in one move. **Delete the two demo-tracking lines in
+`src/app/layout.tsx`** (the comment and the `demo.js` script) when the church pays or goes live.
