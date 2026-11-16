@@ -43,15 +43,17 @@ Preview: https://hopecovenantchicago.elijahdesent.com (hidden from search engine
   the Facebook page, the YouTube banner and the course flyers: a pointed oval reading
   THE GREAT SEAL OF HOPE COVENANT KINGDOM FELLOWSHIP, a mitre over a crossed key and crosier,
   the year AD MMXVI, and a shield quartered with an open book, a descending dove, grapes on the
-  vine and the globe. It has been **redrawn as clean SVG** in `src/components/Seal.tsx` — same
-  concept, same charges, same gold — so it is sharp at any size and needs no image file.
+  vine and the globe, with the Chi-Rho over it. **Use the real file, `public/seal.png`, via
+  `components/GreatSeal.tsx`.** Bishop Boddie asked for it in writing (Nov 16, 2026: “PLEASE USE
+  OUR … EPISCOPAL SEAL”). It is in the header, footer, 404 page, the home quarters section and
+  About. Do not swap it for a redrawing; the old SVG redraw (`Seal`, `Shield` in `Seal.tsx`) is
+  no longer used.
 - **The shield is the site map.** The four charges are the four things the fellowship gives itself
   to: the Word, the Spirit, the Covenant, the World. They are listed in `quarters` in `site.ts`
   and rendered on the home page as a quartered block in the four tinctures, each one a link.
-  `Charge` in `Seal.tsx` draws any single charge at any size; `Shield` draws the small mark used
-  in the header, the footer and the 404 page.
-- **Every instance of the seal or shield needs its own `uid` prop.** Two copies of an inline SVG
-  on one page cannot share gradient and clip-path ids.
+  `Charge` in `Seal.tsx` draws any single charge as a small icon.
+- **The Bishop's own heraldry** is in `public/heraldry/`: the purple “Seal of the Bishop” (Est.
+  2017 AD) and the “Christus Primus” arms, both on About.
 - **The motto is the headline.** “Excellence is our commitment. Integrity is our standard. The
   Kingdom is our assignment.” is printed on the fellowship’s own course flyers. It is the hero.
 - **Colours** come from the fellowship graphics Bishop Boddie sent (Nov 16, 2026): crimson velvet `#d0201f`–`#3d0407` with gold, a gold crown, and “Family of Churches” on a gold plaque. The home hero is a live-text rebuild of their cover, not the image. The CSS tokens are still named `royal-*`; they now hold the crimson. (The first draft used the royal violet of their YouTube banner.)
@@ -74,10 +76,13 @@ Everything below went onto the site from one source, or is missing. Please check
 2. **Where the fellowship physically gathers.** Google Maps and the chamber-of-commerce listing
    give **740 E 43rd St, Chicago, IL 60653**, which matches the address on the grant form (the form
    adds “Apt. 1410”). MapQuest and Yelp still carry an older **820 E 75th St, Chicago, IL 60619**.
-   The site uses 740 E 43rd St and `/visit` asks people to call ahead rather than claiming it is a
-   sanctuary. Correct the address in `church` if that is wrong.
-3. **Phone.** Two numbers are in circulation: (773) 569-6546 (on the grant form, and in the
-   fellowship’s own media-ministry post) and (773) 234-7585 (on the business listings). The site
+   Because the form’s “Apt. 1410” makes it a residence, the street is hidden (`church.showStreet:
+   false`): `/visit`, `/contact` and the footer say “South Side of Chicago, call ahead”, with no map.
+   Put the real meeting place in `church` and set `showStreet: true` once the Bishop confirms it.
+3. **Phone.** Three numbers are in circulation: (773) 569-6546 (on the grant form, and in the
+   fellowship’s own media-ministry post), (773) 234-7585 (on the business listings) and
+   (773) 595-2500 (the registration line on their own Sacraments flyer, shown on `/teaching` as the
+   course’s `registerB64`). The site
    uses the first. It is stored base64 in `church.phoneB64`.
 4. **Zelle.** No Zelle handle is published anywhere, so none was invented. `/give` says offerings
    are received by Zelle and asks people to call or write for the details. Put the real Zelle email
@@ -88,13 +93,17 @@ Everything below went onto the site from one source, or is missing. Please check
    anywhere, so `/teaching` invites people to ask for the link instead of naming one. Correct
    `events` in `site.ts` if either is wrong.
 6. **Photographs.** There are no photographs of the building, the congregation or a service
-   anywhere online. Bishop Boddie sent portraits on Nov 16, 2026, one per page: choir dress
-   (`bishop-choir-dress.png`, home hero and `og.png`), cassock and mozzetta (`bishop-mozzetta.png`,
-   About), green plaid (`bishop-green-plaid.png`, home broadcast section), his study
-   (`bishop-study.png`, Teaching), cream suit (`bishop-cream-suit.png`, Visit), navy Greek-key
-   jacket (`bishop-navy-greek-key.png`, Give) and teal suit (`bishop-teal-suit.png`, Contact).
-   Cut-outs stand in the crimson header via `components/PageHero.tsx` (`cutout: true`).
-   Photographs of the congregation or a service still go straight in. Nothing here is stock and nothing is AI-generated.
+   anywhere online. Bishop Boddie sent portraits by email on Nov 16, 2026: choir dress with the
+   crosier (`bishop-crosier.png`, home hero and `og.png`; cut out of its white background here),
+   cassock and mozzetta (`bishop-mozzetta.png`, About), gold-embroidered navy jacket
+   (`bishop-embroidered.png`, About header; cut out here), green plaid (`bishop-green-plaid.png`,
+   home broadcast section), his study (`bishop-study.png`, Teaching), cream suit
+   (`bishop-cream-suit.png`, Visit), navy Greek-key jacket (`bishop-navy-greek-key.png`, Give) and
+   teal suit (`bishop-teal-suit.png`, Contact). Cut-outs stand in the crimson header via
+   `components/PageHero.tsx` (`cutout: true`). Not used: a tan suit at a pool table, his flyers
+   (their wording is rebuilt as live text instead: the vision and mission on About and the home
+   page, the Zoom course and registration line on Teaching), and a YouTube QR graphic.
+   Photographs of the congregation or a service still go straight in. Nothing here is stock.
 7. **Founding year.** 2016, read from “AD MMXVI” at the foot of the seal. Not confirmed elsewhere.
 8. **The FAM Institute Bible College & Seminary** is mentioned on `/teaching` on the strength of a
    single post about its 2026 graduating class. Confirm the relationship before it goes live.

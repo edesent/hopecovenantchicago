@@ -1,7 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import Crown from "@/components/Crown";
-import Seal, { Charge, type QuarterId } from "@/components/Seal";
+import GreatSeal from "@/components/GreatSeal";
+import { Charge, type QuarterId } from "@/components/Seal";
 import { broadcast, church, pastor, quarters, vision } from "@/lib/site";
 import { fmtDay, upcoming } from "@/lib/schedule";
 
@@ -27,7 +28,7 @@ export default function Home() {
       {/* ── The cover ──────────────────────────────────────────────────
            Their own "Family of Churches" cover, rebuilt as live type: crown,
            gold-and-white wordmark, the gold plaque, the Bishop's name. The
-           Bishop stands beside it in choir dress, cut out as he sent it. */}
+           Bishop stands beside it in choir dress with his crosier. */}
       <section className="royal-field velvet overflow-hidden text-white">
         <div className="mx-auto grid max-w-6xl items-end gap-4 px-5 pt-12 md:grid-cols-[1.1fr_0.9fr] md:gap-8 md:pt-16">
           <div className="pb-4 text-center md:pb-20">
@@ -74,8 +75,8 @@ export default function Home() {
               aria-hidden="true"
             />
             <Image
-              src="/photos/bishop-choir-dress.png"
-              alt="Bishop Mikal D. Boddie, D.Div., in choir dress: rochet, scarlet chimere, black tippet and pectoral cross"
+              src="/photos/bishop-crosier.png"
+              alt="Bishop Mikal D. Boddie, D.Div., in choir dress — rochet, scarlet chimere, black tippet and pectoral cross — holding his crosier"
               width={427}
               height={640}
               priority
@@ -142,9 +143,9 @@ export default function Home() {
                 one of its four quarters.
               </p>
             </div>
-            <Seal
-              uid="quarters"
-              className="mx-auto w-[clamp(180px,48vw,240px)] drop-shadow-[0_14px_30px_rgba(0,0,0,0.45)]"
+            <GreatSeal
+              sizes="(min-width: 768px) 260px, 56vw"
+              className="mx-auto w-[clamp(200px,56vw,260px)] drop-shadow-[0_14px_30px_rgba(0,0,0,0.45)]"
             />
           </div>
 
@@ -170,7 +171,7 @@ export default function Home() {
       {/* ── The vision statement, word for word ──────────────────────── */}
       <section className="bg-cream">
         <div className="mx-auto max-w-5xl px-5 py-16 text-center md:py-24" data-reveal>
-          <p className="eyebrow text-gold-deep">Our vision</p>
+          <p className="eyebrow text-gold-deep">What we aspire to be · Our vision</p>
           <p className="display pt-6 text-[clamp(1.4rem,3.4vw,2rem)] text-royal">
             To see people
           </p>
@@ -182,6 +183,10 @@ export default function Home() {
               </li>
             ))}
           </ul>
+          <p className="mx-auto max-w-2xl pt-8 text-lg leading-relaxed text-ink/80">
+            We are Perfecting and Empowering People for the Kingdom and serving the community
+            through Faith Sharing while growing together in God.
+          </p>
         </div>
       </section>
 

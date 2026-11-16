@@ -71,7 +71,7 @@ const jsonLd = {
   foundingDate: church.founded,
   address: {
     "@type": "PostalAddress",
-    streetAddress: `${church.streetNumber} ${church.street}`.trim(),
+    ...(church.showStreet ? { streetAddress: `${church.streetNumber} ${church.street}`.trim() } : {}),
     addressLocality: church.city,
     addressRegion: church.stateCode,
     postalCode: church.zip,

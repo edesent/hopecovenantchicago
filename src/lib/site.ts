@@ -46,6 +46,13 @@ export const church = {
   facebook: "https://www.facebook.com/HopeCKF",
   facebookGroup: "https://www.facebook.com/groups/hopeckf",
   youtube: "https://www.youtube.com/@HopeCKF",
+  /**
+   * Off until the Bishop confirms where the fellowship meets. The only street
+   * address on record (from the grant form) is 740 E 43rd St Apt. 1410, a
+   * residence, so the site says "South Side of Chicago, call ahead" instead of
+   * printing it with a map. Set true once a meeting place is confirmed.
+   */
+  showStreet: false,
   /** The year on the Great Seal: AD MMXVI. */
   founded: "2016",
   hashtag: "#HOPECKFONLINE",
@@ -103,6 +110,8 @@ export type SpecialEvent = {
   time24?: string;
   summary: string;
   href?: string;
+  /** A number to call to register, base64'd like the church phone. */
+  registerB64?: string;
 };
 
 export const events: SpecialEvent[] = [
@@ -115,8 +124,10 @@ export const events: SpecialEvent[] = [
     when: "Tuesdays at 6:00 pm",
     time24: "18:00",
     summary:
-      "A six-week virtual course taught by Bishop Mikal D. Boddie, D.Div. Began Tuesday, November 10.",
+      "A six-week Zoom course taught by Bishop Mikal D. Boddie, D.Div. Began Tuesday, November 10.",
     href: "/teaching",
+    /** The registration line printed on their own course flyer (773.595.2500), base64'd. */
+    registerB64: "NzczNTk1MjUwMA==",
   },
 ];
 

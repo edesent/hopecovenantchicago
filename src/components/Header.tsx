@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { church, nav } from "@/lib/site";
-import { Shield } from "./Seal";
+import GreatSeal from "./GreatSeal";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -17,7 +17,7 @@ export default function Header() {
       <header className="sticky top-0 z-40 border-b border-gold/25 bg-royal-ink/95 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center gap-3 px-5 py-3">
           <Link href="/" className="flex items-center gap-3">
-            <Shield uid="hdr" className="h-9 w-auto shrink-0" />
+            <GreatSeal decorative priority sizes="40px" className="h-11 w-auto shrink-0" />
             <span className="leading-none">
               <span className="display block text-[15px] text-white sm:text-[17px]">HOPE Covenant</span>
               <span className="eyebrow block pt-1 text-gold-light/85">Kingdom Fellowship</span>

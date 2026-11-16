@@ -76,9 +76,11 @@ export default function Contact() {
               </a>
             </li>
           </ul>
-          <p className="pt-8 text-sm text-white/65">
-            {church.streetNumber} {church.street}, {church.city}, {church.stateCode} {church.zip}
-          </p>
+          {church.showStreet && (
+            <p className="pt-8 text-sm text-white/65">
+              {church.streetNumber} {church.street}, {church.city}, {church.stateCode} {church.zip}
+            </p>
+          )}
         </div>
       </section>
     </>

@@ -88,39 +88,59 @@ export default function Visit() {
       </section>
 
       <section className="bg-cream">
-        <div className="mx-auto grid max-w-5xl gap-10 px-5 py-16 md:grid-cols-2 md:py-20">
+        <div
+          className={`mx-auto grid max-w-5xl gap-10 px-5 py-16 md:py-20 ${church.showStreet ? "md:grid-cols-2" : ""}`}
+        >
           <div>
             <p className="eyebrow text-gold-deep">Where to find us</p>
-            <p className="display pt-5 text-3xl leading-tight text-royal-deep">
-              {church.streetNumber} {church.street}
-              <br />
-              {church.city}, {church.stateCode} {church.zip}
-            </p>
-            <p className="pt-5 leading-relaxed text-ink/75">
-              This is the fellowship’s address on the South Side. Before you set out, call ahead —
-              a small fellowship moves, and we would rather meet you at the door than have you
-              standing outside it.
-            </p>
+            {church.showStreet ? (
+              <>
+                <p className="display pt-5 text-3xl leading-tight text-royal-deep">
+                  {church.streetNumber} {church.street}
+                  <br />
+                  {church.city}, {church.stateCode} {church.zip}
+                </p>
+                <p className="pt-5 leading-relaxed text-ink/75">
+                  This is the fellowship’s address on the South Side. Before you set out, call ahead —
+                  a small fellowship moves, and we would rather meet you at the door than have you
+                  standing outside it.
+                </p>
+              </>
+            ) : (
+              <>
+                <p className="display pt-5 text-3xl leading-tight text-royal-deep">
+                  The South Side of {church.city}
+                </p>
+                <p className="max-w-2xl pt-5 leading-relaxed text-ink/75">
+                  Call or write before you come and we will tell you exactly where we are meeting —
+                  we would rather meet you at the door than have you looking for it.
+                </p>
+              </>
+            )}
             <p className="time pt-5 text-lg">
               <Phone className="font-semibold text-royal underline decoration-gold underline-offset-4" />
             </p>
             <div className="flex flex-wrap gap-3 pt-8">
-              <a href={church.mapsUrl} target="_blank" rel="noreferrer" className="btn-royal">
-                Directions
-              </a>
+              {church.showStreet && (
+                <a href={church.mapsUrl} target="_blank" rel="noreferrer" className="btn-royal">
+                  Directions
+                </a>
+              )}
               <Link href="/contact" className="btn-royal">
                 Write to us
               </Link>
             </div>
           </div>
-          <div className="overflow-hidden rounded-sm border border-royal/20">
-            <iframe
-              src={embed}
-              title={`Map to ${church.name}`}
-              className="h-[340px] w-full md:h-full"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
-          </div>
+          {church.showStreet && (
+            <div className="overflow-hidden rounded-sm border border-royal/20">
+              <iframe
+                src={embed}
+                title={`Map to ${church.name}`}
+                className="h-[340px] w-full md:h-full"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
+          )}
         </div>
       </section>
 

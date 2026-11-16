@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
+import Phone from "@/components/Phone";
 import Link from "next/link";
 import { Charge } from "@/components/Seal";
 import { broadcast, church, events, pastor } from "@/lib/site";
@@ -65,9 +66,20 @@ export default function Teaching() {
                     <p className="time pt-4 text-sm text-ink/60">
                       Six sessions, through {fmtDay(e.endsOn, { month: "long", day: "numeric" })}.
                     </p>
+                    {e.registerB64 && (
+                      <p className="time pt-5 text-ink/80">
+                        To register, call{" "}
+                        <Phone
+                          b64={e.registerB64}
+                          fallback="the church"
+                          className="font-semibold text-royal underline decoration-gold underline-offset-4"
+                        />
+                        .
+                      </p>
+                    )}
                     <p className="pt-6">
                       <Link href="/contact" className="btn-royal">
-                        Ask for the link
+                        Ask for the Zoom link
                       </Link>
                     </p>
                   </div>

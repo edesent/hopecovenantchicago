@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Phone from "./Phone";
 import { church, nav, pastor } from "@/lib/site";
-import { Shield } from "./Seal";
+import GreatSeal from "./GreatSeal";
 
 export default function Footer() {
   return (
@@ -9,14 +9,20 @@ export default function Footer() {
       <div className="mx-auto max-w-6xl px-5 py-14">
         <div className="flex flex-col gap-10 sm:flex-row sm:items-start sm:justify-between">
           <div className="flex items-start gap-4">
-            <Shield uid="ftr" className="h-16 w-auto shrink-0" />
+            <GreatSeal decorative sizes="72px" className="h-20 w-auto shrink-0" />
             <div>
               <p className="display text-xl text-white">HOPE Covenant Kingdom Fellowship International</p>
               <p className="eyebrow pt-2 text-gold-light/80">Chicago · AD MMXVI</p>
               <p className="pt-4 text-sm leading-relaxed">
-                {church.streetNumber} {church.street}
-                <br />
-                {church.city}, {church.stateCode} {church.zip}
+                {church.showStreet ? (
+                  <>
+                    {church.streetNumber} {church.street}
+                    <br />
+                    {church.city}, {church.stateCode} {church.zip}
+                  </>
+                ) : (
+                  <>South Side · {church.city}, {church.state}</>
+                )}
               </p>
               <p className="time pt-3 text-sm">
                 <Phone className="underline decoration-gold/50 underline-offset-4 hover:text-gold-light" />
