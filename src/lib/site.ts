@@ -254,6 +254,55 @@ export const givingPlatforms: GivingPlatform[] = [
   },
 ];
 
+/**
+ * The flyers section on the home page, newest first. Put the image in
+ * public/photos/. Give a flyer an `endsOn` date (YYYY-MM-DD) and it drops off
+ * the site by itself the day after; leave it out to keep a flyer up.
+ */
+export type Flyer = {
+  id: string;
+  src: string;
+  width: number;
+  height: number;
+  title: string;
+  /** One short line under the title, e.g. the date. */
+  note?: string;
+  alt: string;
+  endsOn?: string;
+};
+
+export const flyers: Flyer[] = [
+  {
+    id: "uccc-midwest-gathering",
+    src: "/photos/uccc-midwest-gathering-2026.png",
+    width: 1254,
+    height: 1254,
+    title: "Midwest Regional Gathering Service",
+    note: "Sunday, Nov 29 · 5:00 pm · Vernon Baptist Church",
+    alt: "Save the Date: United Covenant Churches of Christ Midwest Regional Gathering Service, Sunday, November 29, 2026, 5:00 p.m., Vernon Baptist Church, 10201 S. Ewing Ave., Chicago, IL 60617.",
+    endsOn: "2026-11-29",
+  },
+  {
+    id: "sacraments",
+    src: "/photos/flyer-sacraments.png",
+    width: 427,
+    height: 640,
+    title: "The Sacraments — 6-week Zoom course",
+    note: "Tuesdays at 6:00 pm · through Dec 15",
+    alt: "Flyer: Apostolic Summit 2026 is now open for registration. 6 Week Zoom Course: The Sacraments, Holy Communion and the Lord’s Supper, Tuesdays Nov 10 to Dec 15 at 6:00 pm. Register at 773.595.2500. Bishop Mikal D. Boddie, D.Div., Instructor.",
+    endsOn: "2026-12-15",
+  },
+  {
+    id: "uccc-education-illinois",
+    src: "/photos/uccc-education-illinois.jpg",
+    width: 698,
+    height: 957,
+    title: "Education Department · Illinois",
+    note: "Every church: send us your liaison",
+    alt: "Flyer: United Covenant Churches of Christ, Education Department – Illinois. Bishop Mikal D. Boddie, State Director of Education – Illinois, is seeking a liaison from every Illinois church.",
+  },
+];
+
 /** Keep labels short: long uppercase labels wrap and break the header on phones. */
 export const nav: { href: string; label: string; short: string }[] = [
   { href: "/teaching", label: "Teaching", short: "Teaching" },

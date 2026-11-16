@@ -1,10 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import Crown from "@/components/Crown";
+import Flyers from "@/components/Flyers";
 import GreatSeal from "@/components/GreatSeal";
 import { Charge, type QuarterId } from "@/components/Seal";
-import { broadcast, church, pastor, quarters, vision } from "@/lib/site";
-import { fmtDay, upcoming } from "@/lib/schedule";
+import { broadcast, church, flyers, pastor, quarters, vision } from "@/lib/site";
+import { fmtDay, nowInChurch, upcoming } from "@/lib/schedule";
 import { videos } from "@/lib/videos";
 
 const TINT: Record<QuarterId, string> = {
@@ -18,6 +19,8 @@ const recent = videos.slice(0, 4);
 
 export default function Home() {
   const next = upcoming(3);
+  const today = nowInChurch().date;
+  const currentFlyers = flyers.filter((f) => !f.endsOn || f.endsOn >= today);
 
   return (
     <>
@@ -127,6 +130,24 @@ export default function Home() {
           )}
         </div>
       </section>
+
+      {/* ── Flyers: his own, newest first; dated ones drop off by themselves ── */}
+      {currentFlyers.length > 0 && (
+        <section className="royal-field velvet overflow-hidden text-white">
+          <div className="mx-auto max-w-6xl px-5 py-16 md:py-20">
+            <div className="flex flex-wrap items-end justify-between gap-4">
+              <div>
+                <p className="eyebrow text-gold-light/85">Flyers</p>
+                <h2 className="display pt-4 text-[clamp(1.75rem,4.5vw,2.75rem)]">Coming up, and how to take part.</h2>
+              </div>
+              <p className="text-sm text-white/70">Tap a flyer to see it full size.</p>
+            </div>
+            <div className="pt-10">
+              <Flyers items={currentFlyers} />
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* ── The four quarters of the shield ──────────────────────────── */}
       <section className="royal-field-flat text-white">

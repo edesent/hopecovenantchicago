@@ -32,6 +32,7 @@ domain and hopecovenantchicago.elijahdesent.com 308 to it. The demo tracking scr
 | Service times | `services` in `src/lib/site.ts` (currently empty — see below) |
 | A course or event (drops off by itself after `endsOn`) | `events` in `src/lib/site.ts` |
 | Giving platforms (Givebutter, Givelify, PayPal, Zelle, Cash App) | `givingPlatforms` in `src/lib/site.ts` |
+| Flyers on the home page (dated ones drop off after `endsOn`) | `flyers` in `src/lib/site.ts`, images in `public/photos/` |
 | Address, phone, Facebook, YouTube | `church` in `src/lib/site.ts` |
 | The Bishop | `pastor` in `src/lib/site.ts` |
 | The four quarters of the shield | `quarters` in `src/lib/site.ts` |
