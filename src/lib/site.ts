@@ -10,7 +10,6 @@
  *    which also carries the motto
  *  - their Facebook page facebook.com/HopeCKF and group facebook.com/groups/hopeckf
  *  - the Google Maps listing for HOPE COVENANT KINGDOM FELLOWSHIP INC.
- *  - uccconline.org (United Covenant Churches of Christ) leaders list
  *  - the Small Church Grant request form, November 2026
  *  - documents Bishop Boddie sent on Nov 16, 2026: the formal "Vision and Mission"
  *    statement, the "History of HCKF" biography, the Illinois certificate of good
@@ -18,6 +17,9 @@
  *    (effective Aug 15, 2025) and EIN notice (82-4217790, Jan 30, 2018), and the
  *    Illinois sales tax exemption certificate. The documents themselves are NOT
  *    published: they print a home address and an exemption number.
+ *
+ * Do NOT use anything from uccconline.org (United Covenant Churches of Christ):
+ * no text, photos, logos or affiliation. The Bishop asked for this on Nov 16, 2026.
  */
 
 export const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://hopecovenantchicago.elijahdesent.com";
@@ -73,7 +75,7 @@ export const church = {
 export const pastor = {
   name: "Mikal D. Boddie",
   title: "Bishop",
-  /** Honorific the church itself uses, on every flyer and in the UCCC directory. */
+  /** Honorific the church itself uses on every flyer and on its own documents. */
   styled: "Bishop Mikal D. Boddie, D.Div.",
   role: "Establishmentarian and Presiding Prelate",
   /** From their "History of HCKF" document. */
