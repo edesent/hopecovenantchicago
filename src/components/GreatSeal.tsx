@@ -2,7 +2,8 @@ import Image from "next/image";
 
 /**
  * The fellowship's own episcopal seal, as Bishop Boddie sent it (Nov 16, 2026,
- * "PLEASE USE OUR … EPISCOPAL SEAL"), cut out of its white background.
+ * "PLEASE USE OUR … EPISCOPAL SEAL"). This is the full-resolution copy (1254px on
+ * black), cut out of its background.
  * Use this everywhere the seal appears. Do not redraw it.
  */
 export default function GreatSeal({
@@ -21,8 +22,8 @@ export default function GreatSeal({
   return (
     <Image
       src="/seal.png"
-      width={529}
-      height={592}
+      width={809}
+      height={1154}
       sizes={sizes}
       priority={priority}
       alt={
