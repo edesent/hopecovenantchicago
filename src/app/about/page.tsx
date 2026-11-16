@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import GreatSeal from "@/components/GreatSeal";
+import Motto from "@/components/Motto";
 import PageHero from "@/components/PageHero";
 import { Charge, type QuarterId } from "@/components/Seal";
 import { church, leaders, pastor, quarters, standing } from "@/lib/site";
@@ -246,6 +247,7 @@ export default function About() {
       <section className="royal-field-flat text-white">
         <div className="mx-auto max-w-5xl px-5 py-16 text-center md:py-20" data-reveal>
           <p className="eyebrow text-gold-light/85">{church.name} · Family of Churches</p>
+          <Motto size="md" className="mx-auto mt-8 max-w-xl" />
           <ul className="mt-10 grid gap-px overflow-hidden rounded-sm bg-gold/40 md:grid-cols-3">
             {leaders.map((l) => (
               <li key={l.name} className="bg-royal-ink/60 px-6 py-8">

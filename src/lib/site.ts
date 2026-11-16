@@ -116,6 +116,17 @@ export const standing = {
   ilFile: "7097-089-9",
 };
 
+/**
+ * The motto, in the Bishop's own three lines (Nov 16, 2026: "use this across the
+ * site"). Rendered by components/Motto.tsx in the home hero, the footer of every
+ * page, and on About. Keep his wording and capitals exactly.
+ */
+export const motto = [
+  "Excellence is our commitment.",
+  "Integrity is our standard.",
+  "The Kingdom is our assignment.",
+];
+
 /** Their own name for the weekly teaching broadcast, printed on every sermon flyer. */
 export const broadcast = "The Hour of Empowerment";
 

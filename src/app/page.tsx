@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Crown from "@/components/Crown";
 import Flyers from "@/components/Flyers";
+import Motto from "@/components/Motto";
 import GreatSeal from "@/components/GreatSeal";
 import { Charge, type QuarterId } from "@/components/Seal";
 import { broadcast, church, flyers, pastor, quarters, vision } from "@/lib/site";
@@ -58,9 +59,7 @@ export default function Home() {
             <p className="display pt-1 text-[clamp(0.95rem,2.2vw,1.1rem)] font-normal italic text-gold-light">
               Establishmentarian and Servant Leader
             </p>
-            <p className="mx-auto max-w-md pt-7 text-[15px] leading-relaxed text-white/80">
-              {church.welcome}
-            </p>
+            <Motto size="hero" className="mx-auto pt-7 drop-shadow-[0_3px_10px_rgba(0,0,0,0.35)]" />
             <div className="flex flex-wrap justify-center gap-3 pt-8">
               <Link href="/teaching" className="btn-gold">
                 This week’s teaching

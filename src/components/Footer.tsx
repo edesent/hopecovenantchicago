@@ -2,10 +2,19 @@ import Link from "next/link";
 import Phone from "./Phone";
 import { church, nav, pastor, standing } from "@/lib/site";
 import GreatSeal from "./GreatSeal";
+import Motto from "./Motto";
 
 export default function Footer() {
   return (
     <footer className="royal-field-flat text-white/80">
+      <div className="border-b border-gold/30">
+        <div className="mx-auto flex max-w-6xl flex-col items-center gap-5 px-5 py-12 text-center">
+          <div className="gold-orn w-full max-w-xs" aria-hidden="true">
+            <i />
+          </div>
+          <Motto size="lg" />
+        </div>
+      </div>
       <div className="mx-auto max-w-6xl px-5 py-14">
         <div className="flex flex-col gap-10 sm:flex-row sm:items-start sm:justify-between">
           <div className="flex items-start gap-4">
