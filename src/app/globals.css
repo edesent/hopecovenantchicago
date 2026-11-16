@@ -1,19 +1,20 @@
 @import "tailwindcss";
 
 /*
- * Colours sampled from their own YouTube banner: a royal-violet field
- * (#3b068c through #751cce) behind the Great Seal, with the seal and rules
- * in gold. Their course flyers use the same gold on royal blue.
+ * Colours sampled from the Bishop's own fellowship graphics (the "Family of
+ * Churches" cover and leadership flyer he sent, Nov 2026): crimson velvet lit
+ * gold from above, a gold crown, gold serif lettering, gold plaques. The
+ * `royal` tokens keep their names but now carry that crimson.
  */
 :root {
-  --paper: #fbf8ff;
-  --ink: #1d0a3a;
-  --accent: #3b068c;
+  --paper: #fffaf3;
+  --ink: #2a0709;
+  --accent: #9c0f16;
 
-  --royal: #3b068c;
-  --royal-deep: #22044f;
-  --royal-bright: #751cce;
-  --royal-ink: #140230;
+  --royal: #9c0f16;
+  --royal-deep: #5e070b;
+  --royal-bright: #d42a26;
+  --royal-ink: #1f0305;
   --gold: #d9a52a;
   --gold-light: #f6e09b;
   --gold-deep: #9a6f12;
@@ -35,6 +36,7 @@
   /* Set by next/font/local variables in layout.tsx */
   --font-display: var(--font-playfair, ui-serif, Georgia, serif);
   --font-seal: var(--font-cinzel, ui-serif, Georgia, serif);
+  --font-script: var(--font-vibes, cursive);
   --font-sans: var(--font-archivo, ui-sans-serif, system-ui, sans-serif);
 }
 
@@ -70,14 +72,74 @@ body {
     letter-spacing: 0.14em;
   }
 
-  /* The royal field from their banner: violet, lit from the centre-left. */
+  /* Crimson velvet from their flyers: lit warm-gold from the top, falling to
+     oxblood at the edges. */
   .royal-field {
     background:
-      radial-gradient(120% 95% at 22% 38%, #8b31e4 0%, #5a10b8 34%, #3b068c 62%, #22044f 100%);
+      radial-gradient(70% 55% at 50% 0%, rgba(255, 196, 110, 0.32) 0%, rgba(255, 140, 60, 0) 70%),
+      radial-gradient(120% 95% at 40% 30%, #d0201f 0%, #a8121a 36%, #7a0a10 66%, #3d0407 100%);
   }
 
   .royal-field-flat {
-    background: linear-gradient(180deg, #2c0569 0%, #3b068c 55%, #22044f 100%);
+    background: linear-gradient(180deg, #6e080d 0%, #8f0d14 50%, #4a0509 100%);
+  }
+
+  /* The drape folds at either side of their flyers. Put on a positioned
+     section; the folds fade out before they reach the copy. */
+  .velvet {
+    position: relative;
+    isolation: isolate;
+  }
+  .velvet::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.28) 0px,
+      rgba(255, 255, 255, 0.07) 22px,
+      rgba(0, 0, 0, 0.05) 40px,
+      rgba(0, 0, 0, 0.28) 62px
+    );
+    -webkit-mask-image: linear-gradient(90deg, #000 0%, transparent 16%, transparent 84%, #000 100%);
+    mask-image: linear-gradient(90deg, #000 0%, transparent 16%, transparent 84%, #000 100%);
+  }
+
+  /* Script lettering, as in "Family of Churches" on their cover. */
+  .script {
+    font-family: var(--font-script);
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 1.1;
+  }
+
+  /* The gold plaque their cover sets "Family of Churches" on. */
+  .plaque {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 0.55rem 2.25rem 0.7rem;
+    color: #3a0a06;
+    background: linear-gradient(180deg, #fbe6a4 0%, #e3b44a 45%, #c48f22 70%, #e8c264 100%);
+    border: 1px solid #fff0bf;
+    border-radius: 3px;
+    box-shadow:
+      0 0 0 3px #7a0a10,
+      0 0 0 4px rgba(246, 224, 155, 0.7),
+      0 10px 24px rgba(0, 0, 0, 0.35);
+  }
+  .plaque::before,
+  .plaque::after {
+    content: "";
+    width: 7px;
+    height: 7px;
+    background: #8e1015;
+    transform: rotate(45deg);
+    flex: none;
   }
 
   /* Gold lettering. Gradient text plus text-shadow turns to mud, so the glow is
@@ -87,9 +149,45 @@ body {
     filter: drop-shadow(0 2px 10px rgba(217, 165, 42, 0.35));
   }
 
+  /* Engraved gold letters, as in the wordmark on their cover. Gradient fill,
+     shadow by filter (a text-shadow would paint through the clipped glyphs). */
+  .gold-letter {
+    background: linear-gradient(180deg, #fff5cf 0%, #f6dc8c 30%, #dcaa38 58%, #b07d17 78%, #f0cd70 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 2px 0 rgba(70, 8, 4, 0.55)) drop-shadow(0 8px 18px rgba(0, 0, 0, 0.35));
+  }
+
   .gold-rule {
     height: 2px;
     background: linear-gradient(90deg, transparent, var(--gold) 18%, var(--gold-light) 50%, var(--gold) 82%, transparent);
+  }
+
+  /* A gold rule with a diamond at its centre, as under their wordmark. */
+  .gold-orn {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .gold-orn::before,
+  .gold-orn::after {
+    content: "";
+    flex: 1;
+    height: 1.5px;
+  }
+  .gold-orn::before {
+    background: linear-gradient(90deg, transparent, var(--gold) 40%, var(--gold-light));
+  }
+  .gold-orn::after {
+    background: linear-gradient(90deg, var(--gold-light), var(--gold) 60%, transparent);
+  }
+  .gold-orn > i {
+    width: 8px;
+    height: 8px;
+    background: var(--gold-light);
+    transform: rotate(45deg);
+    box-shadow: 0 0 10px rgba(246, 224, 155, 0.6);
   }
 
   .btn-gold {
@@ -97,7 +195,7 @@ body {
     align-items: center;
     gap: 0.5rem;
     background: linear-gradient(180deg, #f3d882 0%, #d9a52a 55%, #b8861b 100%);
-    color: #2a0a1e;
+    color: #3a0a06;
     font-weight: 600;
     letter-spacing: 0.06em;
     text-transform: uppercase;
@@ -145,7 +243,7 @@ body {
 
   .field {
     width: 100%;
-    border: 1px solid #d8cde9;
+    border: 1px solid #e6cfc4;
     background: #fff;
     border-radius: 2px;
     padding: 0.7rem 0.85rem;

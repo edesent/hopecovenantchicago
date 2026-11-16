@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import Crown from "@/components/Crown";
 import Seal, { Charge, type QuarterId } from "@/components/Seal";
 import { broadcast, church, pastor, quarters, vision } from "@/lib/site";
 import { fmtDay, upcoming } from "@/lib/schedule";
@@ -23,25 +24,41 @@ export default function Home() {
 
   return (
     <>
-      {/* ── The Great Seal ───────────────────────────────────────────── */}
-      <section className="royal-field relative overflow-hidden text-white">
-        <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 py-16 md:grid-cols-[1.15fr_0.85fr] md:gap-12 md:py-24">
-          <div>
-            <p className="eyebrow text-gold-light/90">Chicago, Illinois · AD MMXVI</p>
-            <h1 className="display pt-6 text-[clamp(1.9rem,5.4vw,3.15rem)]">
-              Excellence is our commitment.
-              <br />
-              Integrity is our standard.
-              <br />
-              <span className="gold-text">The Kingdom is our assignment.</span>
+      {/* ── The cover ──────────────────────────────────────────────────
+           Their own "Family of Churches" cover, rebuilt as live type: crown,
+           gold-and-white wordmark, the gold plaque, the Bishop's name. The
+           Bishop stands beside it in choir dress, cut out as he sent it. */}
+      <section className="royal-field velvet overflow-hidden text-white">
+        <div className="mx-auto grid max-w-6xl items-end gap-4 px-5 pt-12 md:grid-cols-[1.1fr_0.9fr] md:gap-8 md:pt-16">
+          <div className="pb-4 text-center md:pb-20">
+            <Crown uid="hero" className="mx-auto w-[clamp(84px,14vw,120px)]" />
+            <h1 className="seal-type pt-3 leading-[0.98] tracking-[0.04em]">
+              <span className="gold-letter block text-[clamp(3.6rem,13vw,7.25rem)]">HOPE</span>
+              <span className="block text-[clamp(2.1rem,7.4vw,4.25rem)] text-white drop-shadow-[0_4px_14px_rgba(0,0,0,0.35)]">
+                Covenant
+              </span>
+              <span className="gold-letter block text-[clamp(2.1rem,7.4vw,4.25rem)]">Kingdom</span>
+              <span className="block pt-1 text-[clamp(1.15rem,3.9vw,2.2rem)] tracking-[0.2em] text-white">
+                Fellowship
+              </span>
+              <span className="sr-only"> International</span>
             </h1>
-            <div className="gold-rule mt-8 max-w-sm" />
-            <p className="max-w-xl pt-7 text-lg leading-relaxed text-white/85">
-              HOPE Covenant Kingdom Fellowship International is a non-denominational, Bible-centred
-              family of churches in Chicago. We are a network of bishops, apostles, prophets,
-              evangelists, pastors and teachers, led by {pastor.styled}.
+            <div className="gold-orn mx-auto mt-5 max-w-md" aria-hidden="true">
+              <i />
+            </div>
+            <p className="pt-6">
+              <span className="plaque script text-[clamp(1.7rem,4.6vw,2.4rem)]">Family of Churches</span>
             </p>
-            <div className="flex flex-wrap gap-3 pt-9">
+            <p className="seal-type pt-8 text-[clamp(1rem,2.6vw,1.3rem)] tracking-[0.08em] text-white">
+              {pastor.styled}
+            </p>
+            <p className="display pt-1 text-[clamp(0.95rem,2.2vw,1.1rem)] font-normal italic text-gold-light">
+              Establishmentarian and Servant Leader
+            </p>
+            <p className="mx-auto max-w-md pt-7 text-[15px] leading-relaxed text-white/80">
+              {church.welcome}
+            </p>
+            <div className="flex flex-wrap justify-center gap-3 pt-8">
               <Link href="/teaching" className="btn-gold">
                 This week’s teaching
               </Link>
@@ -51,10 +68,23 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="flex justify-center md:justify-end">
-            <Seal uid="hero" className="w-[clamp(240px,70vw,400px)] drop-shadow-[0_18px_40px_rgba(0,0,0,0.45)]" />
+          <div className="relative flex justify-center">
+            <div
+              className="pointer-events-none absolute inset-x-0 bottom-0 mx-auto h-[70%] w-[90%] rounded-full bg-[radial-gradient(closest-side,rgba(255,214,130,0.42),rgba(255,214,130,0))]"
+              aria-hidden="true"
+            />
+            <Image
+              src="/photos/bishop-choir-dress.png"
+              alt="Bishop Mikal D. Boddie, D.Div., in choir dress: rochet, scarlet chimere, black tippet and pectoral cross"
+              width={427}
+              height={640}
+              priority
+              sizes="(min-width: 768px) 440px, 78vw"
+              className="relative w-[min(78vw,340px)] md:w-[440px] drop-shadow-[0_24px_40px_rgba(0,0,0,0.45)]"
+            />
           </div>
         </div>
+        <div className="gold-rule" />
       </section>
 
       {/* ── What is next ─────────────────────────────────────────────── */}
@@ -101,15 +131,21 @@ export default function Home() {
       {/* ── The four quarters of the shield ──────────────────────────── */}
       <section className="royal-field-flat text-white">
         <div className="mx-auto max-w-6xl px-5 py-16 md:py-24">
-          <div className="max-w-2xl" data-reveal>
-            <p className="eyebrow text-gold-light/85">The shield is quartered</p>
-            <h2 className="display pt-5 text-[clamp(1.75rem,4.5vw,2.75rem)]">
-              Four charges. Four things we give ourselves to.
-            </h2>
-            <p className="pt-5 text-white/80">
-              The seal was drawn for this fellowship when it was founded. Everything we do sits in
-              one of its four quarters.
-            </p>
+          <div className="grid items-center gap-10 md:grid-cols-[1fr_auto]" data-reveal>
+            <div className="max-w-2xl">
+              <p className="eyebrow text-gold-light/85">The Great Seal · AD MMXVI</p>
+              <h2 className="display pt-5 text-[clamp(1.75rem,4.5vw,2.75rem)]">
+                Four charges. Four things we give ourselves to.
+              </h2>
+              <p className="pt-5 text-white/80">
+                The seal was drawn for this fellowship when it was founded. Everything we do sits in
+                one of its four quarters.
+              </p>
+            </div>
+            <Seal
+              uid="quarters"
+              className="mx-auto w-[clamp(180px,48vw,240px)] drop-shadow-[0_14px_30px_rgba(0,0,0,0.45)]"
+            />
           </div>
 
           <div className="mt-12 grid gap-px overflow-hidden rounded-sm bg-gold/60 sm:grid-cols-2" data-reveal>

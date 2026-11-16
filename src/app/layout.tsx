@@ -21,6 +21,12 @@ const cinzel = localFont({
   display: "swap",
   weight: "700",
 });
+const vibes = localFont({
+  src: "../fonts/great-vibes-400.woff2",
+  variable: "--font-vibes",
+  display: "swap",
+  weight: "400",
+});
 const archivo = localFont({
   src: [
     { path: "../fonts/archivo-400.woff2", weight: "400", style: "normal" },
@@ -45,14 +51,15 @@ export const metadata: Metadata = {
     siteName: church.name,
     title: church.name,
     description,
-    images: [],
+    url: siteUrl,
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: `${church.name} — Family of Churches` }],
   },
-  twitter: { card: "summary_large_image" },
+  twitter: { card: "summary_large_image", images: ["/og.png"] },
   robots: isDemo ? { index: false, follow: false } : undefined,
 };
 
 export const viewport: Viewport = {
-  themeColor: "#140230",
+  themeColor: "#1f0305",
 };
 
 const jsonLd = {
@@ -75,7 +82,7 @@ const jsonLd = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${playfair.variable} ${cinzel.variable} ${archivo.variable}`}>
+    <html lang="en" className={`${playfair.variable} ${cinzel.variable} ${vibes.variable} ${archivo.variable}`}>
       <head>
         <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
       </head>

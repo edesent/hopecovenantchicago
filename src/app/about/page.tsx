@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default function About() {
   return (
     <>
-      <section className="royal-field text-white">
+      <section className="royal-field velvet text-white">
         <div className="mx-auto max-w-5xl px-5 py-16 md:py-24">
           <p className="eyebrow text-gold-light/90">About the fellowship</p>
           <h1 className="display max-w-3xl pt-6 text-[clamp(2rem,6vw,3.4rem)]">
@@ -33,13 +33,17 @@ export default function About() {
       <section className="bg-paper">
         <div className="mx-auto grid max-w-5xl gap-12 px-5 py-16 md:grid-cols-[auto_1fr] md:py-20">
           <div className="justify-self-center md:justify-self-start" data-reveal>
-            <Image
-              src="/photos/bishop-boddie.jpg"
-              alt="Bishop Mikal D. Boddie in a teal double-breasted suit, from the Hour of Empowerment broadcast"
-              width={360}
-              height={720}
-              className="w-[240px] rounded-sm border border-gold/50 object-cover sm:w-[300px]"
-            />
+            {/* An arch of their crimson, the Bishop standing in it as he sent the photo. */}
+            <div className="royal-field relative flex w-[270px] items-end justify-center overflow-hidden rounded-t-full border border-gold/60 pt-10 shadow-[0_0_0_4px_var(--paper),0_0_0_5px_rgba(217,165,42,0.55)] sm:w-[320px]">
+              <Image
+                src="/photos/bishop-mozzetta.png"
+                alt="Bishop Mikal D. Boddie, D.Div., in a magenta cassock and mozzetta with a gold pectoral cross"
+                width={474}
+                height={526}
+                sizes="320px"
+                className="relative w-full"
+              />
+            </div>
           </div>
           <div data-reveal>
             <p className="eyebrow text-gold-deep">The presiding prelate</p>
@@ -53,9 +57,17 @@ export default function About() {
               and to be led. He teaches it long and he teaches it plainly, and the teaching is kept
               free.
             </p>
-            <p className="max-w-2xl pt-4 leading-relaxed text-ink/80">
+            <blockquote className="mt-8 max-w-2xl border-l-2 border-gold pl-6">
+              <p className="display text-[clamp(1.25rem,2.6vw,1.6rem)] font-normal italic leading-snug text-royal-deep">
+                “Standing in Apostolic and Episcopal order, preserving sacred tradition, and rejecting
+                the instability of passing fads and trends.”
+              </p>
+            </blockquote>
+            <p className="max-w-2xl pt-8 leading-relaxed text-ink/80">
               He also sits among the leaders of the United Covenant Churches of Christ, Midwest
-              Region, and pastors in other cities belong to this family of churches with him.
+              Region, and pastors in other cities belong to this family of churches with him. The
+              fellowship’s international office is kept by Sharnay J. Taylor, International Executive
+              Secretary.
             </p>
             <p className="pt-8">
               <Link href="/teaching" className="btn-royal">

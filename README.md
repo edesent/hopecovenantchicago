@@ -19,7 +19,7 @@ Preview: https://hopecovenantchicago.elijahdesent.com (hidden from search engine
 - **Deploys:** every push to `main` auto-deploys on Vercel. Run `npm run build` first. If the type-check fails, the live site does not update.
 - **Commit email** must be `Elimark1611@gmail.com`, or Vercel blocks the deploy.
 - **Fonts are self-hosted** in `src/fonts/` (`bash scripts/get-font.sh "<Family>" <weight>`). Don’t switch to `next/font/google`.
-  Playfair Display 700 for display, Cinzel 700 for the seal and the small caps labels, Archivo for everything else.
+  Playfair Display 700 for display, Cinzel 700 for the wordmark, the seal and the small caps labels, Great Vibes for the “Family of Churches” script, Archivo for everything else.
 - **Times are set in the sans** (`.time` class), never in a display serif.
 
 ## Where things live
@@ -54,7 +54,7 @@ Preview: https://hopecovenantchicago.elijahdesent.com (hidden from search engine
   on one page cannot share gradient and clip-path ids.
 - **The motto is the headline.** “Excellence is our commitment. Integrity is our standard. The
   Kingdom is our assignment.” is printed on the fellowship’s own course flyers. It is the hero.
-- **Colours** are sampled from the real YouTube banner: royal violet `#3b068c`–`#751cce` with gold.
+- **Colours** come from the fellowship graphics Bishop Boddie sent (Nov 16, 2026): crimson velvet `#d0201f`–`#3d0407` with gold, a gold crown, and “Family of Churches” on a gold plaque. The home hero is a live-text rebuild of their cover, not the image. The CSS tokens are still named `royal-*`; they now hold the crimson. (The first draft used the royal violet of their YouTube banner.)
 - **Courses expire by themselves.** Each entry in `events` has `endsOn`; the pages re-render hourly
   (`revalidate = 3600` in `layout.tsx`). The Sacraments course is set to drop off after 15 December
   2026 — it disappears from the home page, `/teaching` and `/visit` with no edit. Keep that line.
@@ -88,9 +88,10 @@ Everything below went onto the site from one source, or is missing. Please check
    anywhere, so `/teaching` invites people to ask for the link instead of naming one. Correct
    `events` in `site.ts` if either is wrong.
 6. **Photographs.** There are no photographs of the building, the congregation or a service
-   anywhere online. The only photograph on the site is Bishop Boddie, cropped from the fellowship’s
-   own Hour of Empowerment broadcast graphic (`public/photos/bishop-boddie.jpg`). Send photographs
-   of the fellowship and they go straight in. Nothing here is stock and nothing is AI-generated.
+   anywhere online. Bishop Boddie sent two cut-out portraits on Nov 16, 2026: in choir dress
+   (`bishop-choir-dress.png`, home hero and `og.png`) and in cassock and mozzetta
+   (`bishop-mozzetta.png`, About). `bishop-boddie.jpg` is cropped from the Hour of Empowerment
+   broadcast graphic. Photographs of the congregation or a service still go straight in. Nothing here is stock and nothing is AI-generated.
 7. **Founding year.** 2016, read from “AD MMXVI” at the foot of the seal. Not confirmed elsewhere.
 8. **The FAM Institute Bible College & Seminary** is mentioned on `/teaching` on the strength of a
    single post about its 2026 graduating class. Confirm the relationship before it goes live.

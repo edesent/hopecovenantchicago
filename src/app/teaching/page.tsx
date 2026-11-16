@@ -26,7 +26,7 @@ export default function Teaching() {
 
   return (
     <>
-      <section className="royal-field text-white">
+      <section className="royal-field velvet text-white">
         <div className="mx-auto max-w-5xl px-5 py-16 md:py-24">
           <p className="eyebrow text-gold-light/90">{broadcast}</p>
           <h1 className="display max-w-3xl pt-6 text-[clamp(2rem,6vw,3.4rem)]">
