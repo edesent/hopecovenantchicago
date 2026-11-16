@@ -20,7 +20,7 @@ export default function Header() {
             <GreatSeal decorative priority sizes="40px" className="h-11 w-auto shrink-0" />
             <span className="leading-none">
               <span className="display block text-[15px] text-white sm:text-[17px]">HOPE Covenant</span>
-              <span className="eyebrow block pt-1 text-gold-light/85">Kingdom Fellowship</span>
+              <span className="block pt-1 text-sm font-semibold tracking-wide text-gold-light/85 sm:text-base">Kingdom Fellowship</span>
             </span>
           </Link>
 
