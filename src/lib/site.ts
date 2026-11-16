@@ -20,6 +20,8 @@
  *
  * Do NOT use anything from uccconline.org (United Covenant Churches of Christ):
  * no text, photos, logos or affiliation. The Bishop asked for this on Nov 16, 2026.
+ * The ONE exception he asked for: his own UCCC Education Department – Illinois
+ * flyer (public/photos/uccc-education-illinois.jpg) on /teaching, shown as sent.
  */
 
 export const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://hopecovenantchicago.elijahdesent.com";

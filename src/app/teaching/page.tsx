@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import PageHero from "@/components/PageHero";
 import Phone from "@/components/Phone";
 import VideoCard from "@/components/VideoCard";
@@ -117,6 +118,40 @@ export default function Teaching() {
               Write to the Bishop
             </Link>
           </p>
+        </div>
+      </section>
+
+      {/* The one UCCC item the Bishop asked to show: his own Education Department flyer,
+          exactly as he sent it (Nov 16, 2026). Use nothing else from the UCCC or its website. */}
+      <section className="bg-cream">
+        <div className="mx-auto grid max-w-5xl items-center gap-10 px-5 py-16 md:grid-cols-[1fr_1.1fr] md:py-20">
+          <div className="flex justify-center" data-reveal>
+            <Image
+              src="/photos/uccc-education-illinois.jpg"
+              alt="Flyer: United Covenant Churches of Christ, Education Department – Illinois. Bishop G. E. Livingston, Presiding Prelate, and Bishop Mikal D. Boddie, State Director of Education – Illinois. Seeking a liaison from every Illinois church; office 773-924-2790, cell 773-569-6546, Bishopmboddie@gmail.com."
+              width={698}
+              height={957}
+              sizes="(min-width: 768px) 420px, 90vw"
+              className="w-full max-w-[420px] rounded-sm border border-gold/60 shadow-[0_18px_40px_rgba(0,0,0,0.25)]"
+            />
+          </div>
+          <div data-reveal>
+            <p className="eyebrow text-gold-deep">Education Department · Illinois</p>
+            <h2 className="display pt-5 text-[clamp(1.6rem,4vw,2.4rem)] leading-tight text-royal-deep">
+              State Director of Education – Illinois
+            </h2>
+            <p className="pt-5 leading-relaxed text-ink/80">
+              We are seeking a liaison person from every Illinois church to be a representative in
+              the UCCC Education Department – Illinois. Every Pastor is asked to appoint a person from
+              your church Education Department as soon as possible; and send the information to
+              Bishop Mikal D. Boddie.
+            </p>
+            <p className="pt-8">
+              <Link href="/contact" className="btn-royal">
+                Send your liaison’s name
+              </Link>
+            </p>
+          </div>
         </div>
       </section>
     </>
