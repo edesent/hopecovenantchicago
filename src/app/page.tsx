@@ -76,8 +76,8 @@ export default function Home() {
             <Image
               src="/photos/bishop-crosier.png"
               alt="Bishop Mikal D. Boddie, D.Div., in choir dress — rochet, scarlet chimere, black tippet and pectoral cross — holding his crosier"
-              width={427}
-              height={640}
+              width={1024}
+              height={1536}
               priority
               sizes="(min-width: 768px) 440px, 78vw"
               className="relative w-[min(78vw,340px)] md:w-[440px] drop-shadow-[0_24px_40px_rgba(0,0,0,0.45)]"

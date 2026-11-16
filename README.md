@@ -7,7 +7,10 @@ particular feature, so the site was built around the three things the fellowship
 every week — teaching, gathering, and reaching the neighbourhood — with giving and a prayer line
 one tap away.
 
-Preview: https://hopecovenantchicago.elijahdesent.com (hidden from search engines; see "Going live").
+Live: https://www.hopeckf-international.org (since Nov 16, 2026). Registered by Eli on Amazon Registrar
+(`greengreen` profile, auto-renew, privacy on; Route 53 zone Z00678081JJDZXVVY5L6J: A @ 216.150.1.1 /
+216.150.16.1, CNAME www → b3a2d6aba63eab07.vercel-dns-016.com). www is the main address; the bare
+domain and hopecovenantchicago.elijahdesent.com 308 to it. The demo tracking script is removed — never re-add it.
 
 ## Read this before editing (for people and AI assistants)
 
@@ -94,7 +97,8 @@ Everything below went onto the site from one source, or is missing. Please check
    `events` in `site.ts` if either is wrong.
 6. **Photographs.** There are no photographs of the building, the congregation or a service
    anywhere online. Bishop Boddie sent portraits by email on Nov 16, 2026: choir dress with the
-   crosier (`bishop-crosier.png`, home hero and `og.png`; cut out of its white background here),
+   crosier (`bishop-crosier.png`, home hero and `og.png`; enhanced to 1024×1536 through ChatGPT on Eli's
+   request, Nov 16, 2026, checked face/hands/crosier against the 427px original, then cut out here),
    cassock and mozzetta (`bishop-mozzetta.png`, About), gold-embroidered navy jacket
    (`bishop-embroidered.png`, About header; cut out here), green plaid (`bishop-green-plaid.png`,
    home broadcast section), his study (`bishop-study.png`, Teaching), cream suit

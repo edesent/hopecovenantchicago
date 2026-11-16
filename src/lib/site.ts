@@ -25,7 +25,8 @@
  * flyer (an `events` entry; drops off after the date). Nothing else.
  */
 
-export const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://hopecovenantchicago.elijahdesent.com";
+/** Live on its own domain since Nov 16, 2026 (www is the main address; the bare domain and the old demo address redirect here). */
+export const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.hopeckf-international.org";
 
 /**
  * Preview hosts stay out of search. Once NEXT_PUBLIC_SITE_URL is set to the
