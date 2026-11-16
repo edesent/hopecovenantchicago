@@ -20,8 +20,9 @@
  *
  * Do NOT use anything from uccconline.org (United Covenant Churches of Christ):
  * no text, photos, logos or affiliation. The Bishop asked for this on Nov 16, 2026.
- * The ONE exception he asked for: his own UCCC Education Department – Illinois
- * flyer (public/photos/uccc-education-illinois.jpg) on /teaching, shown as sent.
+ * Exceptions, both sent by him and approved by Eli: his UCCC Education Department –
+ * Illinois flyer on /teaching, and the Nov 29, 2026 Midwest Regional Gathering
+ * flyer (an `events` entry; drops off after the date). Nothing else.
  */
 
 export const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://hopecovenantchicago.elijahdesent.com";
@@ -158,6 +159,12 @@ export type SpecialEvent = {
   time24?: string;
   summary: string;
   href?: string;
+  /** "course" shows on /teaching with the Zoom details; "event" only on / and /visit. */
+  kind?: "course" | "event";
+  /** Where it is, when it isn't with us. */
+  place?: string;
+  /** Their own flyer for it, in public/photos. */
+  flyer?: { src: string; width: number; height: number; alt: string };
   /** A number to call to register, base64'd like the church phone. */
   registerB64?: string;
 };
@@ -174,8 +181,28 @@ export const events: SpecialEvent[] = [
     summary:
       "A six-week Zoom course taught by Bishop Mikal D. Boddie, D.Div. Began Tuesday, November 10.",
     href: "/teaching",
+    kind: "course",
     /** The registration line printed on their own course flyer (773.595.2500), base64'd. */
     registerB64: "NzczNTk1MjUwMA==",
+  },
+  {
+    // The Bishop sent this UCCC flyer and Eli approved putting it on (Nov 16, 2026).
+    id: "uccc-midwest-gathering",
+    title: "United Covenant Churches of Christ — Midwest Regional Gathering Service",
+    start: "2026-11-29",
+    endsOn: "2026-11-29",
+    when: "Sunday, Nov 29 · 5:00 pm",
+    time24: "17:00",
+    summary: "Honoring Our Leaders. Strengthening Our Region. Advancing God’s Kingdom.",
+    place: "Vernon Baptist Church, 10201 S. Ewing Ave., Chicago, IL 60617",
+    href: "/visit",
+    kind: "event",
+    flyer: {
+      src: "/photos/uccc-midwest-gathering-2026.png",
+      width: 1254,
+      height: 1254,
+      alt: "Save the Date: United Covenant Churches of Christ Midwest Regional Gathering Service, Sunday, November 29, 2026, 5:00 p.m., Vernon Baptist Church, 10201 S. Ewing Ave., Chicago, IL 60617. Bishops Warner J. Pitts, Anthony Goffin, H. Levi McClendon III, Andrew Gibson and G. E. Livingston.",
+    },
   },
 ];
 

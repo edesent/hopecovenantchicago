@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import PageHero from "@/components/PageHero";
 import Link from "next/link";
 import Phone from "@/components/Phone";
@@ -75,11 +76,24 @@ export default function Visit() {
                 <div>
                   <p className="display text-2xl leading-snug text-royal-deep">{e.title}</p>
                   <p className="pt-2 text-ink/70">{e.summary}</p>
-                  <p className="pt-2">
-                    <Link href="/teaching" className="underline decoration-gold underline-offset-4">
-                      About the course
-                    </Link>
-                  </p>
+                  {e.place && <p className="pt-2 font-semibold text-ink/80">{e.place}</p>}
+                  {e.flyer && (
+                    <Image
+                      src={e.flyer.src}
+                      alt={e.flyer.alt}
+                      width={e.flyer.width}
+                      height={e.flyer.height}
+                      sizes="(min-width: 640px) 420px, 90vw"
+                      className="mt-5 w-full max-w-[420px] rounded-sm border border-gold/60 shadow-[0_14px_30px_rgba(0,0,0,0.2)]"
+                    />
+                  )}
+                  {e.kind !== "event" && (
+                    <p className="pt-2">
+                      <Link href="/teaching" className="underline decoration-gold underline-offset-4">
+                        About the course
+                      </Link>
+                    </p>
+                  )}
                 </div>
               </li>
             ))}

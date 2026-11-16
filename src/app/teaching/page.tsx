@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 
 export default function Teaching() {
   const today = nowInChurch().date;
-  const running = events.filter((e) => e.endsOn >= today);
+  const running = events.filter((e) => e.endsOn >= today && e.kind !== "event");
 
   return (
     <>
