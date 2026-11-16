@@ -51,6 +51,8 @@ export const church = {
   mapsUrl: "https://www.google.com/maps/search/?api=1&query=740+E+43rd+St+Chicago+IL+60653",
   facebook: "https://www.facebook.com/HopeCKF",
   facebookGroup: "https://www.facebook.com/groups/hopeckf",
+  /** HOPE COVENANT MEDIA MARKETING MINISTRY — the group on their grant form. */
+  facebookMedia: "https://www.facebook.com/groups/hopeckfmediamministry",
   youtube: "https://www.youtube.com/@HopeCKF",
   /**
    * Off until the Bishop confirms where the fellowship meets. The only street
@@ -174,20 +176,51 @@ export const events: SpecialEvent[] = [
 ];
 
 /**
- * Online giving. Put their real Cash App / Givelify / Tithe.ly / PayPal link
- * in `url` and the Give page shows a button. Leave `url` empty and the page
- * says how to give and offers to help set one up.
- *
- * They give by Zelle today, but no Zelle handle is published anywhere, so
- * nothing is invented here. Put the Zelle email or phone in `zelle` and the
- * Give page prints it.
+ * Giving platforms, in the order Bishop Boddie listed them (Nov 16, 2026).
+ * `url` gets a "Give securely" button. `b64` values (the PayPal email and the
+ * Zelle number) are put together in the browser so scrapers can't harvest them,
+ * with a Copy button; encode with `printf 'value' | base64`.
  */
-export const giving = {
-  provider: "Zelle",
-  url: "",
-  label: "Give online",
-  zelle: "",
+export type GivingPlatform = {
+  name: string;
+  /** Who the gift goes to, as the platform shows it. */
+  payee?: string;
+  url?: string;
+  /** Shown as the handle when there is no b64 value, e.g. a Cash App $cashtag. */
+  handle?: string;
+  b64?: string;
+  how: string;
 };
+
+export const givingPlatforms: GivingPlatform[] = [
+  {
+    name: "Givebutter",
+    url: "https://givebutter.com/HopeCKFGiveCampaign",
+    how: "Give securely online, by card or bank.",
+  },
+  {
+    name: "Givelify",
+    payee: "Hope Covenant Kingdom Fellowship",
+    url: "https://giv.li/79ra1g",
+    how: "Give in the Givelify app or online.",
+  },
+  {
+    name: "PayPal",
+    b64: "aG9wZWNrZkBnbWFpbC5jb20=",
+    how: "Send to this address from your PayPal account.",
+  },
+  {
+    name: "Zelle",
+    b64: "NzczLTU2OS02NTQ2",
+    how: "Send from your own bank’s app to this number.",
+  },
+  {
+    name: "Cash App",
+    handle: "$Hopeckf",
+    url: "https://cash.app/$Hopeckf",
+    how: "Send to this $Cashtag from Cash App.",
+  },
+];
 
 /** Keep labels short: long uppercase labels wrap and break the header on phones. */
 export const nav: { href: string; label: string; short: string }[] = [

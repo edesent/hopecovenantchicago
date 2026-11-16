@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 import Link from "next/link";
 import Phone from "@/components/Phone";
-import { Charge } from "@/components/Seal";
-import { church, giving, standing } from "@/lib/site";
+import CopyValue from "@/components/CopyValue";
+import { givingPlatforms, standing } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Give",
@@ -27,46 +27,46 @@ export default function Give() {
 
       <section className="bg-paper">
         <div className="mx-auto max-w-3xl px-5 py-16 md:py-20">
-          <div className="flex items-start gap-6 border-l-4 border-gold pl-6 sm:pl-8" data-reveal>
-            <Charge id="covenant" className="hidden h-16 w-16 shrink-0 rounded-sm bg-royal-deep p-2 sm:block" />
-            <div>
-              <p className="eyebrow text-gold-deep">{giving.provider}</p>
-              <h2 className="display pt-3 text-[clamp(1.6rem,4vw,2.2rem)] text-royal-deep">
-                We receive offerings by {giving.provider}.
-              </h2>
-              {giving.zelle ? (
-                <p className="time pt-5 text-xl font-semibold text-royal">{giving.zelle}</p>
-              ) : (
-                <p className="pt-5 leading-relaxed text-ink/80">
-                  Call or write and we will send you the {giving.provider} details, or you can give
-                  by hand when we gather.
-                </p>
-              )}
-              <p className="time pt-5 text-lg">
-                <Phone className="font-semibold text-royal underline decoration-gold underline-offset-4" />
-              </p>
-              <div className="flex flex-wrap gap-3 pt-7">
-                <Link href="/contact" className="btn-royal">
-                  Ask for the details
-                </Link>
-                {giving.url && (
-                  <a href={giving.url} target="_blank" rel="noreferrer" className="btn-royal">
-                    {giving.label}
+          <p className="eyebrow text-gold-deep">Giving platforms</p>
+          <h2 className="display pt-3 text-[clamp(1.6rem,4vw,2.2rem)] text-royal-deep">
+            Five ways to give.
+          </h2>
+          <ol className="mt-8 grid gap-4" data-reveal>
+            {givingPlatforms.map((g, i) => (
+              <li
+                key={g.name}
+                className="flex flex-col gap-4 rounded-sm border border-gold/50 bg-cream p-6 sm:flex-row sm:items-center sm:justify-between sm:gap-8"
+              >
+                <div className="flex items-start gap-4">
+                  <span className="seal-type flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-royal-deep text-sm text-gold-light">
+                    {i + 1}
+                  </span>
+                  <div>
+                    <h3 className="display text-2xl leading-tight text-royal-deep">{g.name}</h3>
+                    {g.payee && <p className="pt-1 text-sm font-semibold text-ink/75">{g.payee}</p>}
+                    <p className="pt-1 text-sm text-ink/65">{g.how}</p>
+                    {g.b64 && (
+                      <p className="pt-3">
+                        <CopyValue b64={g.b64} />
+                      </p>
+                    )}
+                    {g.handle && !g.b64 && (
+                      <p className="time pt-3 text-lg font-semibold text-royal-deep">{g.handle}</p>
+                    )}
+                  </div>
+                </div>
+                {g.url && (
+                  <a href={g.url} target="_blank" rel="noreferrer" className="btn-gold shrink-0 self-start sm:self-center">
+                    {g.handle ? `Open ${g.name}` : "Give securely"}
                   </a>
                 )}
-              </div>
-            </div>
-          </div>
-
-          <div className="mt-14 border-t border-royal/15 pt-10" data-reveal>
-            <h2 className="display text-2xl text-royal-deep">Giving online</h2>
-            <p className="pt-4 leading-relaxed text-ink/80">
-              {giving.provider} works well for people who already bank with it. If the fellowship
-              would also like a giving page that anyone can use from a phone — Cash App, Givelify or
-              Tithe.ly — we can set one up and link it here. Nothing changes about how {giving.provider}{" "}
-              works today.
-            </p>
-          </div>
+              </li>
+            ))}
+          </ol>
+          <p className="pt-6 text-sm leading-relaxed text-ink/65">
+            Questions about a gift? Call <Phone className="font-semibold text-royal underline decoration-gold underline-offset-4" />{" "}
+            or <Link href="/contact" className="font-semibold text-royal underline decoration-gold underline-offset-4">write to us</Link>.
+          </p>
 
           <div className="mt-10 border-t border-royal/15 pt-10" data-reveal>
             <h2 className="display text-2xl text-royal-deep">Where it goes</h2>

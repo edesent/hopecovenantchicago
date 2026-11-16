@@ -77,7 +77,7 @@ const jsonLd = {
     postalCode: church.zip,
     addressCountry: "US",
   },
-  sameAs: [church.facebook, church.facebookGroup, church.youtube].filter(Boolean),
+  sameAs: [church.facebook, church.facebookGroup, church.facebookMedia, church.youtube].filter(Boolean),
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

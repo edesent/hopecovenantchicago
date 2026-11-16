@@ -75,6 +75,11 @@ export default function Contact() {
                 Facebook group
               </a>
             </li>
+            <li>
+              <a href={church.facebookMedia} target="_blank" rel="noreferrer" className="underline decoration-gold/60 underline-offset-4">
+                Media Marketing Ministry
+              </a>
+            </li>
           </ul>
           {church.showStreet && (
             <p className="pt-8 text-sm text-white/65">

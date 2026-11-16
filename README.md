@@ -28,7 +28,7 @@ Preview: https://hopecovenantchicago.elijahdesent.com (hidden from search engine
 | --- | --- |
 | Service times | `services` in `src/lib/site.ts` (currently empty — see below) |
 | A course or event (drops off by itself after `endsOn`) | `events` in `src/lib/site.ts` |
-| Online giving / the Zelle details | `giving` in `src/lib/site.ts` |
+| Giving platforms (Givebutter, Givelify, PayPal, Zelle, Cash App) | `givingPlatforms` in `src/lib/site.ts` |
 | Address, phone, Facebook, YouTube | `church` in `src/lib/site.ts` |
 | The Bishop | `pastor` in `src/lib/site.ts` |
 | The four quarters of the shield | `quarters` in `src/lib/site.ts` |
