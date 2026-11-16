@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import PageHero from "@/components/PageHero";
 import Phone from "@/components/Phone";
 import { ContactForm, PrayerForm } from "@/components/Forms";
 import { church, pastor } from "@/lib/site";
@@ -12,13 +13,11 @@ export const metadata: Metadata = {
 export default function Contact() {
   return (
     <>
-      <section className="royal-field velvet text-white">
-        <div className="mx-auto max-w-5xl px-5 py-16 md:py-24">
-          <p className="eyebrow text-gold-light/90">Contact</p>
-          <h1 className="display max-w-3xl pt-6 text-[clamp(2rem,6vw,3.4rem)]">
-            Say something. Somebody here will read it.
-          </h1>
-          <div className="gold-rule mt-8 max-w-sm" />
+      <PageHero
+        eyebrow="Contact"
+        title="Say something. Somebody here will read it."
+        portrait={{ src: "/photos/bishop-teal-suit.png", width: 525, height: 640, cutout: true, alt: "Bishop Mikal D. Boddie, D.Div., in a teal double-breasted suit with gold buttons" }}
+      >
           <p className="max-w-2xl pt-7 text-lg leading-relaxed text-white/85">
             This is a small fellowship, so messages do not disappear into a queue. They reach{" "}
             {pastor.title} {pastor.name}.
@@ -32,8 +31,7 @@ export default function Contact() {
               className="text-gold-light underline decoration-gold/60 underline-offset-4"
             />
           </p>
-        </div>
-      </section>
+      </PageHero>
 
       <section className="bg-cream">
         <div className="mx-auto max-w-3xl px-5 py-16 md:py-20" data-reveal>

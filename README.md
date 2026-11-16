@@ -88,10 +88,13 @@ Everything below went onto the site from one source, or is missing. Please check
    anywhere, so `/teaching` invites people to ask for the link instead of naming one. Correct
    `events` in `site.ts` if either is wrong.
 6. **Photographs.** There are no photographs of the building, the congregation or a service
-   anywhere online. Bishop Boddie sent two cut-out portraits on Nov 16, 2026: in choir dress
-   (`bishop-choir-dress.png`, home hero and `og.png`) and in cassock and mozzetta
-   (`bishop-mozzetta.png`, About). `bishop-boddie.jpg` is cropped from the Hour of Empowerment
-   broadcast graphic. Photographs of the congregation or a service still go straight in. Nothing here is stock and nothing is AI-generated.
+   anywhere online. Bishop Boddie sent portraits on Nov 16, 2026, one per page: choir dress
+   (`bishop-choir-dress.png`, home hero and `og.png`), cassock and mozzetta (`bishop-mozzetta.png`,
+   About), green plaid (`bishop-green-plaid.png`, home broadcast section), his study
+   (`bishop-study.png`, Teaching), cream suit (`bishop-cream-suit.png`, Visit), navy Greek-key
+   jacket (`bishop-navy-greek-key.png`, Give) and teal suit (`bishop-teal-suit.png`, Contact).
+   Cut-outs stand in the crimson header via `components/PageHero.tsx` (`cutout: true`).
+   Photographs of the congregation or a service still go straight in. Nothing here is stock and nothing is AI-generated.
 7. **Founding year.** 2016, read from “AD MMXVI” at the foot of the seal. Not confirmed elsewhere.
 8. **The FAM Institute Bible College & Seminary** is mentioned on `/teaching` on the strength of a
    single post about its 2026 graduating class. Confirm the relationship before it goes live.

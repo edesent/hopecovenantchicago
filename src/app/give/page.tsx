@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import PageHero from "@/components/PageHero";
 import Link from "next/link";
 import Phone from "@/components/Phone";
 import { Charge } from "@/components/Seal";
@@ -13,19 +14,16 @@ export const metadata: Metadata = {
 export default function Give() {
   return (
     <>
-      <section className="royal-field velvet text-white">
-        <div className="mx-auto max-w-5xl px-5 py-16 md:py-24">
-          <p className="eyebrow text-gold-light/90">Give</p>
-          <h1 className="display max-w-3xl pt-6 text-[clamp(2rem,6vw,3.4rem)]">
-            Sow into the Kingdom.
-          </h1>
-          <div className="gold-rule mt-8 max-w-sm" />
+      <PageHero
+        eyebrow="Give"
+        title="Sow into the Kingdom."
+        portrait={{ src: "/photos/bishop-navy-greek-key.png", width: 427, height: 640, cutout: true, alt: "Bishop Mikal D. Boddie, D.Div., in a navy jacket with a white Greek-key panel and gold buttons" }}
+      >
           <p className="max-w-2xl pt-7 text-lg leading-relaxed text-white/85">
             Every offering goes into the same three things: keeping the teaching free, keeping the
             courses running, and reaching the neighbourhood with real help.
           </p>
-        </div>
-      </section>
+      </PageHero>
 
       <section className="bg-paper">
         <div className="mx-auto max-w-3xl px-5 py-16 md:py-20">

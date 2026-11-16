@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import PageHero from "@/components/PageHero";
 import Link from "next/link";
 import Phone from "@/components/Phone";
 import { church, events, pastor, services } from "@/lib/site";
@@ -19,20 +20,17 @@ export default function Visit() {
 
   return (
     <>
-      <section className="royal-field velvet text-white">
-        <div className="mx-auto max-w-5xl px-5 py-16 md:py-24">
-          <p className="eyebrow text-gold-light/90">Gather with us</p>
-          <h1 className="display max-w-3xl pt-6 text-[clamp(2rem,6vw,3.4rem)]">
-            There is room for you here.
-          </h1>
-          <div className="gold-rule mt-8 max-w-sm" />
+      <PageHero
+        eyebrow="Gather with us"
+        title="There is room for you here."
+        portrait={{ src: "/photos/bishop-cream-suit.png", width: 480, height: 640, cutout: true, alt: "Bishop Mikal D. Boddie, D.Div., smiling, in a cream double-breasted suit with a gold tie" }}
+      >
           <p className="max-w-2xl pt-7 text-lg leading-relaxed text-white/85">
             We are a small fellowship with a wide reach. Some of us are in the room, some are on the
             broadcast, and some are pastors in other cities who belong to this family of churches.
             All three are welcome.
           </p>
-        </div>
-      </section>
+      </PageHero>
 
       <section className="bg-paper">
         <div className="mx-auto max-w-5xl px-5 py-16 md:py-20">

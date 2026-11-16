@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import PageHero from "@/components/PageHero";
 import Link from "next/link";
 import { Charge } from "@/components/Seal";
 import { broadcast, church, events, pastor } from "@/lib/site";
@@ -26,13 +27,11 @@ export default function Teaching() {
 
   return (
     <>
-      <section className="royal-field velvet text-white">
-        <div className="mx-auto max-w-5xl px-5 py-16 md:py-24">
-          <p className="eyebrow text-gold-light/90">{broadcast}</p>
-          <h1 className="display max-w-3xl pt-6 text-[clamp(2rem,6vw,3.4rem)]">
-            An hour of the Word, chapter and verse.
-          </h1>
-          <div className="gold-rule mt-8 max-w-sm" />
+      <PageHero
+        eyebrow={broadcast}
+        title="An hour of the Word, chapter and verse."
+        portrait={{ src: "/photos/bishop-study.png", width: 427, height: 640, cutout: false, alt: "Bishop Mikal D. Boddie, D.Div., in a navy double-breasted suit in his study, shelves of books and a globe behind him" }}
+      >
           <p className="max-w-2xl pt-7 text-lg leading-relaxed text-white/85">
             {pastor.styled} teaches the whole counsel of God — doctrine, order, the sacraments, the
             life of the leader. Sixty-five teachings are online, free, and a new one goes up most
@@ -46,8 +45,7 @@ export default function Teaching() {
               Facebook
             </a>
           </div>
-        </div>
-      </section>
+      </PageHero>
 
       {/* Courses running now. Each one drops off this page by itself after `endsOn`. */}
       {running.length > 0 && (

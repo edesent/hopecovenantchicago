@@ -190,11 +190,12 @@ export default function Home() {
         <div className="mx-auto grid max-w-6xl gap-12 px-5 py-16 md:grid-cols-[auto_1fr] md:py-24">
           <div className="justify-self-center md:justify-self-start" data-reveal>
             <Image
-              src="/photos/bishop-boddie.jpg"
-              alt="Bishop Mikal D. Boddie in a teal double-breasted suit, from the Hour of Empowerment broadcast"
-              width={360}
-              height={720}
-              className="w-[220px] rounded-sm border border-gold/40 object-cover sm:w-[280px]"
+              src="/photos/bishop-green-plaid.png"
+              alt="Bishop Mikal D. Boddie, D.Div., smiling, in a green windowpane double-breasted suit with a red and gold polka-dot tie"
+              width={512}
+              height={640}
+              sizes="(min-width: 640px) 300px, 240px"
+              className="w-[240px] rounded-sm border border-gold/60 shadow-[0_0_0_4px_rgba(31,3,5,0.6),0_0_0_5px_rgba(217,165,42,0.45)] sm:w-[300px]"
               priority={false}
             />
           </div>
