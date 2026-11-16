@@ -11,8 +11,8 @@ export default function Footer() {
           <div className="flex items-start gap-4">
             <Shield uid="ftr" className="h-16 w-auto shrink-0" />
             <div>
-              <p className="display text-xl text-white">HOPE Covenant Kingdom Fellowship</p>
-              <p className="eyebrow pt-2 text-gold-light/80">International · Chicago · AD MMXVI</p>
+              <p className="display text-xl text-white">HOPE Covenant Kingdom Fellowship International</p>
+              <p className="eyebrow pt-2 text-gold-light/80">Chicago · AD MMXVI</p>
               <p className="pt-4 text-sm leading-relaxed">
                 {church.streetNumber} {church.street}
                 <br />
