@@ -279,6 +279,39 @@ export default function Home() {
           </Link>
         </div>
       </section>
+
+      {/* ── The 2027 theme (the Bishop's own seal, sent Nov 16, 2026) ── */}
+      <section className="relative overflow-hidden bg-royal-ink text-white">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_70%_at_50%_42%,rgba(217,165,42,0.32)_0%,rgba(156,15,22,0.38)_38%,transparent_72%)] md:bg-[radial-gradient(42%_80%_at_30%_50%,rgba(217,165,42,0.32)_0%,rgba(156,15,22,0.38)_40%,transparent_74%)]"
+        />
+        <div className="relative mx-auto grid max-w-6xl items-center gap-10 px-5 py-16 md:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] md:gap-16 md:py-24">
+          <div className="justify-self-center" data-reveal>
+            <Image
+              src="/theme-2027.webp"
+              alt="Seal of Hope Covenant Kingdom Fellowship International for 2027: a bishop’s mitre and two swords over a globe and an open Bible, with the banner “The Year of Revival, Soul Winning, and Kingdom Expansion.”"
+              width={967}
+              height={1000}
+              sizes="(min-width: 768px) 460px, 82vw"
+              className="h-auto w-[min(82vw,460px)] drop-shadow-[0_24px_50px_rgba(0,0,0,0.6)]"
+            />
+          </div>
+          <div className="text-center md:text-left" data-reveal>
+            <p className="eyebrow text-gold-light/85">Our theme for 2027</p>
+            <h2 className="display pt-5 text-[clamp(2rem,5.2vw,3.5rem)] leading-[1.08]">
+              The Year of Revival, <span className="text-gold-light">Soul Winning,</span> and
+              Kingdom Expansion.
+            </h2>
+            <div className="gold-orn mx-auto mt-8 w-full max-w-xs md:mx-0" aria-hidden="true">
+              <i />
+            </div>
+            <p className="display pt-6 text-lg font-normal italic text-gold-light/90">
+              {church.name}
+            </p>
+          </div>
+        </div>
+      </section>
     </>
   );
 }
