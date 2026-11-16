@@ -26,7 +26,7 @@ export default function Home() {
            gold-and-white wordmark, the gold plaque, the Bishop's name. The
            Bishop stands beside it in choir dress with his crosier. */}
       <section className="royal-field velvet overflow-hidden text-white">
-        <div className="mx-auto grid max-w-6xl items-end gap-4 px-5 pt-12 md:grid-cols-[1.1fr_0.9fr] md:gap-8 md:pt-16">
+        <div className="mx-auto grid max-w-6xl items-end gap-2 px-5 pt-12 md:grid-cols-[1fr_1fr] md:gap-4 md:pt-10">
           <div className="pb-4 text-center md:pb-20">
             <Crown uid="hero" className="mx-auto w-[clamp(84px,14vw,120px)]" />
             <h1 className="seal-type pt-3 leading-[0.98] tracking-[0.04em]">
@@ -79,8 +79,8 @@ export default function Home() {
               width={1024}
               height={1536}
               priority
-              sizes="(min-width: 768px) 440px, 78vw"
-              className="relative w-[min(78vw,340px)] md:w-[440px] drop-shadow-[0_24px_40px_rgba(0,0,0,0.45)]"
+              sizes="(min-width: 1024px) 600px, (min-width: 768px) 46vw, 92vw"
+              className="relative w-[min(92vw,430px)] md:w-[min(46vw,600px)] drop-shadow-[0_24px_40px_rgba(0,0,0,0.45)]"
             />
           </div>
         </div>
