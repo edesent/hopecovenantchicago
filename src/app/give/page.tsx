@@ -3,12 +3,12 @@ import PageHero from "@/components/PageHero";
 import Link from "next/link";
 import Phone from "@/components/Phone";
 import { Charge } from "@/components/Seal";
-import { church, giving } from "@/lib/site";
+import { church, giving, standing } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Give",
   description:
-    "How to give to HOPE Covenant Kingdom Fellowship International, Chicago — a 501(c)(3) religious and charitable organisation.",
+    "How to give to HOPE Covenant Kingdom Fellowship International, Chicago — a religious and charitable 501(c)(3) organization. Contributions are tax-deductible as provided by law.",
 };
 
 export default function Give() {
@@ -21,7 +21,7 @@ export default function Give() {
       >
           <p className="max-w-2xl pt-7 text-lg leading-relaxed text-white/85">
             Every offering goes into the same three things: keeping the teaching free, keeping the
-            courses running, and reaching the neighbourhood with real help.
+            courses running, and reaching the neighborhood with real help.
           </p>
       </PageHero>
 
@@ -80,14 +80,30 @@ export default function Give() {
                 like The Sacraments, and the training of leaders.
               </li>
               <li className="border-t border-royal/10 py-4">
-                <span className="font-semibold text-royal-deep">The neighbourhood.</span> Food
+                <span className="font-semibold text-royal-deep">The neighborhood.</span> Food
                 assistance, prayer gatherings, youth and senior outreach on the South Side.
               </li>
             </ul>
-            <p className="time pt-8 text-sm text-ink/60">
-              HOPE Covenant Kingdom Fellowship, Inc. is a 501(c)(3) religious and charitable
-              organisation. {church.city}, {church.state}.
+          </div>
+
+          <div className="mt-10 border border-gold/50 bg-cream px-6 py-6 sm:px-8" data-reveal>
+            <p className="eyebrow text-gold-deep">Federal and state standing</p>
+            <p className="display pt-4 text-xl leading-snug text-royal-deep">{standing.statement}</p>
+            <p className="pt-2 text-ink/80">
+              {standing.deductible} <span className="px-1 text-gold-deep">|</span> EIN: {standing.ein}
             </p>
+            <ul className="pt-5 text-sm leading-relaxed text-ink/75">
+              <li className="border-t border-royal/10 py-2.5">
+                Recognized by the IRS as a 501(c)(3) public charity, effective {standing.irsEffective}.
+              </li>
+              <li className="border-t border-royal/10 py-2.5">
+                An Illinois not-for-profit corporation, incorporated October 13, 2016, in good standing
+                with the Secretary of State (file no. {standing.ilFile}).
+              </li>
+              <li className="border-t border-royal/10 py-2.5">
+                Exempt from Illinois sales tax as a religious organization.
+              </li>
+            </ul>
           </div>
         </div>
       </section>

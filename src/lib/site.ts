@@ -12,6 +12,12 @@
  *  - the Google Maps listing for HOPE COVENANT KINGDOM FELLOWSHIP INC.
  *  - uccconline.org (United Covenant Churches of Christ) leaders list
  *  - the Small Church Grant request form, November 2026
+ *  - documents Bishop Boddie sent on Nov 16, 2026: the formal "Vision and Mission"
+ *    statement, the "History of HCKF" biography, the Illinois certificate of good
+ *    standing (incorporated Oct 13, 2016), the IRS 501(c)(3) determination letter
+ *    (effective Aug 15, 2025) and EIN notice (82-4217790, Jan 30, 2018), and the
+ *    Illinois sales tax exemption certificate. The documents themselves are NOT
+ *    published: they print a home address and an exemption number.
  */
 
 export const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://hopecovenantchicago.elijahdesent.com";
@@ -53,8 +59,12 @@ export const church = {
    * printing it with a map. Set true once a meeting place is confirmed.
    */
   showStreet: false,
-  /** The year on the Great Seal: AD MMXVI. */
-  founded: "2016",
+  /** "Established in January of 2018" — their own Vision and Mission statement. */
+  founded: "2018-01",
+  /** Incorporated in Illinois as a not-for-profit, Oct 13, 2016: the AD MMXVI on the seal. */
+  incorporated: "2016-10-13",
+  /** The line under the title on their formal Vision and Mission statement. */
+  tagline: "Kingdom Growth • Covenant Life",
   hashtag: "#HOPECKFONLINE",
 };
 
@@ -64,6 +74,38 @@ export const pastor = {
   /** Honorific the church itself uses, on every flyer and in the UCCC directory. */
   styled: "Bishop Mikal D. Boddie, D.Div.",
   role: "Establishmentarian and Presiding Prelate",
+  /** From their "History of HCKF" document. */
+  honors: [
+    { when: "Sept 2019", what: "Honorary Doctorate of Divinity" },
+    { when: "March 2023", what: "Certificate in Chaplaincy, Chicago Chaplain Division" },
+    { when: "Aug 2024", what: "Honorary Doctorate of Religious Education" },
+  ],
+};
+
+/**
+ * Leadership exactly as listed at the foot of their Vision and Mission statement
+ * and their History document. (An older flyer and a pasted draft also name
+ * Sister Sharnay J. Taylor, International Executive Secretary; both formal
+ * documents leave her off, so she is not listed until they confirm.)
+ */
+export const leaders = [
+  { name: "Bishop Mikal D. Boddie, D.Div.", role: "Establishmentarian and Presiding Prelate", bishop: true },
+  { name: "Bishop Thabugha Moses", role: "Presiding Prelate of the Uganda Eastern Africa Jurisdiction", bishop: true },
+  { name: "Pastor Ben Bakal", role: "International Secretary General", bishop: false },
+];
+
+/**
+ * Their own wording from the Vision and Mission statement. The EIN is the one on
+ * both IRS letters (their History document has a typo, 82-4217990).
+ * Never publish the Illinois sales tax exemption number.
+ */
+export const standing = {
+  statement:
+    "Hope Covenant Kingdom Fellowship International is a Religious and Charitable 501(c)(3) Organization.",
+  deductible: "Contributions are tax-deductible as provided by law.",
+  ein: "82-4217790",
+  irsEffective: "August 15, 2025",
+  ilFile: "7097-089-9",
 };
 
 /** Their own name for the weekly teaching broadcast, printed on every sermon flyer. */
@@ -166,7 +208,7 @@ export const quarters = [
     charge: "The open Book",
     title: "The Word",
     blurb:
-      "A Bible-centred Reformation. Hour-long teaching, chapter and verse, every week — and a seminary classroom behind it.",
+      "A Bible-centered Reformation. Hour-long teaching, chapter and verse, every week — and a seminary classroom behind it.",
     href: "/teaching",
   },
   {
@@ -190,7 +232,7 @@ export const quarters = [
     charge: "The Globe",
     title: "The World",
     blurb:
-      "International is in the name. A family of churches reaching seniors, families and neighbours across Chicago and beyond.",
+      "International is in the name: the Uganda Eastern Africa Jurisdiction, under Bishop Thabugha Moses, and a family of churches reaching seniors, families and neighbors across Chicago.",
     href: "/visit",
   },
 ];

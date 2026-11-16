@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Phone from "./Phone";
-import { church, nav, pastor } from "@/lib/site";
+import { church, nav, pastor, standing } from "@/lib/site";
 import GreatSeal from "./GreatSeal";
 
 export default function Footer() {
@@ -12,7 +12,7 @@ export default function Footer() {
             <GreatSeal decorative sizes="72px" className="h-20 w-auto shrink-0" />
             <div>
               <p className="display text-xl text-white">HOPE Covenant Kingdom Fellowship International</p>
-              <p className="eyebrow pt-2 text-gold-light/80">Chicago · AD MMXVI</p>
+              <p className="eyebrow pt-2 text-gold-light/80">{church.tagline}</p>
               <p className="pt-4 text-sm leading-relaxed">
                 {church.showStreet ? (
                   <>
@@ -66,6 +66,9 @@ export default function Footer() {
         <div className="gold-rule mt-12 opacity-50" />
         <p className="pt-6 text-xs tracking-wide text-white/55">
           {pastor.styled} · {pastor.role} · {church.hashtag}
+        </p>
+        <p className="pt-2 text-xs tracking-wide text-white/45">
+          A Religious and Charitable 501(c)(3) Organization · EIN {standing.ein}
         </p>
       </div>
     </footer>

@@ -37,7 +37,7 @@ const archivo = localFont({
 });
 
 const description =
-  "HOPE Covenant Kingdom Fellowship International is a non-denominational, Bible-centred family of churches in Chicago, founded AD MMXVI and led by Bishop Mikal D. Boddie, D.Div. New teaching every week.";
+  "HOPE Covenant Kingdom Fellowship International, Family of Churches, is a Christian, Bible-centered fellowship in Chicago, established in January 2018 and led by Bishop Mikal D. Boddie, D.Div. Kingdom Growth • Covenant Life.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

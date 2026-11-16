@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 import Phone from "@/components/Phone";
+import VideoCard from "@/components/VideoCard";
+import { videos } from "@/lib/videos";
 import Link from "next/link";
 import { Charge } from "@/components/Seal";
 import { broadcast, church, events, pastor } from "@/lib/site";
@@ -11,16 +13,6 @@ export const metadata: Metadata = {
   description:
     "The Hour of Empowerment — weekly Bible teaching from Bishop Mikal D. Boddie, D.Div., and the courses running now at HOPE Covenant Kingdom Fellowship International.",
 };
-
-/** Titles taken from their own YouTube channel and flyers. */
-const library = [
-  { title: "The Sacraments I — Holy Communion • The Lord’s Supper", ref: "48 minutes" },
-  { title: "The Sacraments II — Holy Communion • The Lord’s Supper", ref: "17 minutes" },
-  { title: "The Spirit of Ichabod in the Church", ref: "1 Samuel 4:21–22" },
-  { title: "When Leaders Don’t Want to Be Led", ref: "Hebrews 13:17–20" },
-  { title: "When God Uses What You Have Left", ref: "Word-Bearer" },
-  { title: "The Church Is Not a Democracy; It Is a Theocracy", ref: "Colossians 1:15–18" },
-];
 
 export default function Teaching() {
   const today = nowInChurch().date;
@@ -91,21 +83,19 @@ export default function Teaching() {
       )}
 
       <section className="bg-paper">
-        <div className="mx-auto max-w-5xl px-5 py-16 md:py-20">
+        <div className="mx-auto max-w-6xl px-5 py-16 md:py-20">
           <p className="eyebrow text-gold-deep">Recent teaching</p>
-          <ul className="pt-8" data-reveal>
-            {library.map((t) => (
-              <li key={t.title} className="border-t border-royal/15 py-5">
-                <p className="display text-[clamp(1.2rem,3vw,1.6rem)] leading-snug text-royal-deep">
-                  {t.title}
-                </p>
-                <p className="time pt-2 text-sm text-ink/60">{t.ref}</p>
-              </li>
+          <h2 className="display pt-4 text-[clamp(1.6rem,4vw,2.4rem)] leading-tight text-royal-deep">
+            Watch it here.
+          </h2>
+          <div className="grid gap-x-6 gap-y-10 pt-10 sm:grid-cols-2 lg:grid-cols-3">
+            {videos.map((v) => (
+              <VideoCard key={v.id} v={v} />
             ))}
-          </ul>
-          <p className="pt-10">
+          </div>
+          <p className="pt-12">
             <a href={church.youtube} target="_blank" rel="noreferrer" className="btn-royal">
-              All 65 on YouTube
+              Subscribe on YouTube · @HopeCKF
             </a>
           </p>
         </div>

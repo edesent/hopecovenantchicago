@@ -5,6 +5,7 @@ import GreatSeal from "@/components/GreatSeal";
 import { Charge, type QuarterId } from "@/components/Seal";
 import { broadcast, church, pastor, quarters, vision } from "@/lib/site";
 import { fmtDay, upcoming } from "@/lib/schedule";
+import { videos } from "@/lib/videos";
 
 const TINT: Record<QuarterId, string> = {
   word: "bg-[#16356f]",
@@ -13,12 +14,7 @@ const TINT: Record<QuarterId, string> = {
   world: "bg-[#7d1a18]",
 };
 
-const recent = [
-  { title: "The Sacraments — Holy Communion • The Lord’s Supper", ref: "A six-week course" },
-  { title: "The Spirit of Ichabod in the Church", ref: "1 Samuel 4:21–22" },
-  { title: "When Leaders Don’t Want to Be Led", ref: "Hebrews 13:17–20" },
-  { title: "The Church Is Not a Democracy; It Is a Theocracy", ref: "Colossians 1:15–18" },
-];
+const recent = videos.slice(0, 4);
 
 export default function Home() {
   const next = upcoming(3);
@@ -50,7 +46,10 @@ export default function Home() {
             <p className="pt-6">
               <span className="plaque script text-[clamp(1.7rem,4.6vw,2.4rem)]">Family of Churches</span>
             </p>
-            <p className="seal-type pt-8 text-[clamp(1rem,2.6vw,1.3rem)] tracking-[0.08em] text-white">
+            <p className="seal-type pt-6 text-[clamp(0.8rem,2vw,0.95rem)] tracking-[0.22em] text-gold-light">
+              {church.tagline}
+            </p>
+            <p className="seal-type pt-6 text-[clamp(1rem,2.6vw,1.3rem)] tracking-[0.08em] text-white">
               {pastor.styled}
             </p>
             <p className="display pt-1 text-[clamp(0.95rem,2.2vw,1.1rem)] font-normal italic text-gold-light">
@@ -139,8 +138,8 @@ export default function Home() {
                 Four charges. Four things we give ourselves to.
               </h2>
               <p className="pt-5 text-white/80">
-                The seal was drawn for this fellowship when it was founded. Everything we do sits in
-                one of its four quarters.
+                The seal carries AD MMXVI, the year the fellowship was incorporated in Illinois.
+                Everything we do sits in one of its four quarters.
               </p>
             </div>
             <GreatSeal
@@ -184,8 +183,8 @@ export default function Home() {
             ))}
           </ul>
           <p className="mx-auto max-w-2xl pt-8 text-lg leading-relaxed text-ink/80">
-            We are Perfecting and Empowering People for the Kingdom and serving the community
-            through Faith Sharing while growing together in God.
+            We are committed to perfecting and empowering people for the Kingdom, serving the
+            community through faith-sharing, and growing together in God.
           </p>
         </div>
       </section>
@@ -216,9 +215,16 @@ export default function Home() {
             </p>
             <ul className="pt-8">
               {recent.map((t) => (
-                <li key={t.title} className="border-t border-white/15 py-4">
-                  <p className="display text-xl leading-snug">{t.title}</p>
-                  <p className="time pt-1 text-sm text-gold-light/80">{t.ref}</p>
+                <li key={t.id} className="border-t border-white/15 py-4">
+                  <a
+                    href={`https://www.youtube.com/watch?v=${t.id}`}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="seal-type block text-[17px] leading-snug tracking-[0.04em] hover:text-gold-light"
+                  >
+                    {t.title}
+                  </a>
+                  {t.sub && <p className="display pt-1 text-sm font-normal italic text-gold-light/80">{t.sub}</p>}
                 </li>
               ))}
             </ul>

@@ -104,7 +104,12 @@ Everything below went onto the site from one source, or is missing. Please check
    (their wording is rebuilt as live text instead: the vision and mission on About and the home
    page, the Zoom course and registration line on Teaching), and a YouTube QR graphic.
    Photographs of the congregation or a service still go straight in. Nothing here is stock.
-7. **Founding year.** 2016, read from “AD MMXVI” at the foot of the seal. Not confirmed elsewhere.
+7. **Founding dates.** Their own Vision and Mission statement says “established in January of
+   2018” (the IRS EIN notice is dated Jan 30, 2018). The Illinois not-for-profit corporation dates
+   from Oct 13, 2016, which is the AD MMXVI on the seal. The site says both, each for what it is.
+   Leadership, the bio, core values and the 501(c)(3) wording are taken word for word from the
+   documents he sent on Nov 16, 2026 (see the header of `src/lib/site.ts`). Sister Sharnay J.
+   Taylor is on an older flyer but not on either formal document, so she is not listed yet.
 8. **The FAM Institute Bible College & Seminary** is mentioned on `/teaching` on the strength of a
    single post about its 2026 graduating class. Confirm the relationship before it goes live.
 9. **Teaching titles** on `/` and `/teaching` were transcribed from the YouTube channel. They are
