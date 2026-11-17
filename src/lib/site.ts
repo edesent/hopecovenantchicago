@@ -20,9 +20,11 @@
  *
  * Do NOT use anything from uccconline.org (United Covenant Churches of Christ):
  * no text, photos, logos or affiliation. The Bishop asked for this on Nov 16, 2026.
- * Exceptions, both sent by him and approved by Eli: his UCCC Education Department –
- * Illinois flyer on /teaching, and the Nov 29, 2026 Midwest Regional Gathering
- * flyer (an `events` entry; drops off after the date). Nothing else.
+ * Exceptions, each one sent by him and approved by Eli: his UCCC Education Department –
+ * Illinois flyer on /teaching; the Nov 29, 2026 Midwest Regional Gathering flyer; and
+ * the Nov 29, 2026 "ELEVATION" Education Department Illinois Liaisons Meet & Greet
+ * flyer, sent 17 Nov 2026 with Eli's go-ahead to add it. The last two are `events`
+ * entries and drop off after the date. Nothing else.
  */
 
 /** Live on its own domain since Nov 16, 2026 (www is the main address; the bare domain and the old demo address redirect here). */
@@ -216,6 +218,25 @@ export const events: SpecialEvent[] = [
       alt: "Save the Date: United Covenant Churches of Christ Midwest Regional Gathering Service, Sunday, November 29, 2026, 5:00 p.m., Vernon Baptist Church, 10201 S. Ewing Ave., Chicago, IL 60617. Bishops Warner J. Pitts, Anthony Goffin, H. Levi McClendon III, Andrew Gibson and G. E. Livingston.",
     },
   },
+  {
+    // The Bishop sent this UCCC flyer directly to Eli to add (17 Nov 2026).
+    id: "uccc-education-illinois-meet-greet",
+    title: "ELEVATION — Department of Education, Illinois Liaisons Meet & Greet",
+    start: "2026-11-29",
+    endsOn: "2026-11-29",
+    when: "Sunday, Nov 29 · 3:00–4:00 pm",
+    time24: "15:00",
+    summary: "United Covenant Churches of Christ, Midwest Regional Gathering. Before the evening service, the Department of Education's Illinois liaisons meet and greet.",
+    place: "Vernon Church, 10201 S. Ewing Ave., Chicago, IL 60617",
+    href: "/visit",
+    kind: "event",
+    flyer: {
+      src: "/photos/uccc-education-illinois-meet-greet-2026.jpg",
+      width: 492,
+      height: 640,
+      alt: "United Covenant Churches of Christ, Midwest Regional Gathering: ELEVATION. Department of Education - Illinois Liaisons Meet & Greet, with Bishop G.E. Livingston (Presiding Prelate), Bishop A.D. Gibson (Regional Prelate), Bishop Mikal D. Boddie (State Director of Education - Illinois) and Overseer Staci R. Bennett (National Director of Education). November 29, 2026, 3-4 pm, Vernon Church, 10201 S. Ewing Ave., Chicago, Illinois 60617.",
+    },
+  },
 ];
 
 /**
@@ -291,6 +312,16 @@ export const flyers: Flyer[] = [
     title: "Midwest Regional Gathering Service",
     note: "Sunday, Nov 29 · 5:00 pm · Vernon Baptist Church",
     alt: "Save the Date: United Covenant Churches of Christ Midwest Regional Gathering Service, Sunday, November 29, 2026, 5:00 p.m., Vernon Baptist Church, 10201 S. Ewing Ave., Chicago, IL 60617.",
+    endsOn: "2026-11-29",
+  },
+  {
+    id: "uccc-education-illinois-meet-greet",
+    src: "/photos/uccc-education-illinois-meet-greet-2026.jpg",
+    width: 492,
+    height: 640,
+    title: "ELEVATION — Illinois Liaisons Meet & Greet",
+    note: "Sunday, Nov 29 · 3:00–4:00 pm · Vernon Church",
+    alt: "United Covenant Churches of Christ, Midwest Regional Gathering: ELEVATION. Department of Education - Illinois Liaisons Meet & Greet, with Bishop G.E. Livingston, Bishop A.D. Gibson, Bishop Mikal D. Boddie and Overseer Staci R. Bennett. November 29, 2026, 3-4 pm, Vernon Church, 10201 S. Ewing Ave., Chicago, Illinois 60617.",
     endsOn: "2026-11-29",
   },
   {
