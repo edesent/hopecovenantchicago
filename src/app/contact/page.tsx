@@ -31,6 +31,14 @@ export default function Contact() {
               className="text-gold-light underline decoration-gold/60 underline-offset-4"
             />
           </p>
+          <p className="time pt-3 text-lg">
+            <a
+              href={`mailto:${church.email}`}
+              className="break-all text-gold-light underline decoration-gold/60 underline-offset-4"
+            >
+              {church.email}
+            </a>
+          </p>
       </PageHero>
 
       <section className="bg-cream">

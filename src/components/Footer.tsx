@@ -36,6 +36,14 @@ export default function Footer() {
               <p className="time pt-3 text-sm">
                 <Phone className="underline decoration-gold/50 underline-offset-4 hover:text-gold-light" />
               </p>
+              <p className="time pt-2 text-sm">
+                <a
+                  href={`mailto:${church.email}`}
+                  className="break-all underline decoration-gold/50 underline-offset-4 hover:text-gold-light"
+                >
+                  {church.email}
+                </a>
+              </p>
             </div>
           </div>
 

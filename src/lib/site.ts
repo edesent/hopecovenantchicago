@@ -56,6 +56,8 @@ export const church = {
    * Never type the digits into a page.
    */
   phoneB64: "NzczNTY5NjU0Ng==",
+  /** Official fellowship email supplied by Bishop Boddie on Nov 17, 2026. */
+  email: "hopeckf@gmail.com",
   mapsUrl: "https://www.google.com/maps/search/?api=1&query=740+E+43rd+St+Chicago+IL+60653",
   facebook: "https://www.facebook.com/HopeCKF",
   facebookGroup: "https://www.facebook.com/groups/hopeckf",
