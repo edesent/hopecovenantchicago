@@ -49,7 +49,18 @@ export default function Teaching() {
             {running.map((e) => (
               <article key={e.id} className="pt-8" data-reveal>
                 <div className="flex flex-col gap-8 border-l-4 border-gold pl-6 sm:flex-row sm:items-start sm:gap-10 sm:pl-8">
-                  <Charge id="covenant" className="h-20 w-20 shrink-0 rounded-sm bg-royal-deep p-2" />
+                  {e.flyer ? (
+                    <Image
+                      src={e.flyer.src}
+                      alt={e.flyer.alt}
+                      width={e.flyer.width}
+                      height={e.flyer.height}
+                      sizes="(min-width: 640px) 360px, 85vw"
+                      className="w-full max-w-[360px] shrink-0 rounded-sm border border-gold/60 shadow-[0_14px_30px_rgba(0,0,0,0.2)]"
+                    />
+                  ) : (
+                    <Charge id="covenant" className="h-20 w-20 shrink-0 rounded-sm bg-royal-deep p-2" />
+                  )}
                   <div>
                     <h2 className="display text-[clamp(1.6rem,4vw,2.4rem)] leading-tight text-royal-deep">
                       {e.title}
@@ -71,9 +82,9 @@ export default function Teaching() {
                       </p>
                     )}
                     <p className="pt-6">
-                      <Link href="/contact" className="btn-royal">
-                        Ask for the Zoom link
-                      </Link>
+                      <a href={church.facebook} target="_blank" rel="noreferrer" className="btn-royal">
+                        Watch on Facebook Live
+                      </a>
                     </p>
                   </div>
                 </div>

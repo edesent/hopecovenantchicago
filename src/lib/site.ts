@@ -6,8 +6,8 @@
  *  - their YouTube channel youtube.com/@HopeCKF — the banner (the Great Seal, the
  *    wordmark, #HOPECKFONLINE), the channel description (vision and mission), and
  *    65 teachings with their titles and scripture references
- *  - their own course flyer for The Sacraments (Tuesdays at 6:00 pm, began Nov 10)
- *    which also carries the motto
+ *  - their own course flyers for The Sacraments (Tuesdays at 6:00 pm, began Nov 10),
+ *    including the Nov 17 Sacraments II / Holy Communion flyer
  *  - their Facebook page facebook.com/HopeCKF and group facebook.com/groups/hopeckf
  *  - the Google Maps listing for HOPE COVENANT KINGDOM FELLOWSHIP INC.
  *  - the Small Church Grant request form, November 2026
@@ -188,16 +188,22 @@ export type SpecialEvent = {
 export const events: SpecialEvent[] = [
   {
     id: "sacraments",
-    title: "The Sacraments — Holy Communion • The Lord’s Supper",
+    title: "Apostolic Summit 2026 — The Sacraments",
     start: "2026-11-10",
     // Six Tuesdays from Nov 10: Nov 10, 17, 24, Dec 1, 8, 15. Off the site on Dec 16.
     endsOn: "2026-12-15",
     when: "Tuesdays at 6:00 pm",
     time24: "18:00",
     summary:
-      "A six-week Zoom course taught by Bishop Mikal D. Boddie, D.Div. Began Tuesday, November 10.",
+      "A six-week virtual course taught by Bishop Mikal D. Boddie, D.Div. Tuesdays at 6:00 pm via Facebook Live. Week 2 covers Baptism, with the replay available on YouTube.",
     href: "/teaching",
     kind: "course",
+    flyer: {
+      src: "/photos/sacraments-week-2-communion-2026.webp",
+      width: 1670,
+      height: 941,
+      alt: "The Sacraments II: Holy Communion and the Lord's Supper, Tuesday, November 17 at 6:00 pm. Six-week virtual course from HOPE Covenant Kingdom Fellowship International, taught by Bishop Mikal D. Boddie, D.Div.",
+    },
     /** The registration line printed on their own course flyer (773.595.2500), base64'd. */
     registerB64: "NzczNTk1MjUwMA==",
   },
@@ -306,6 +312,26 @@ export type Flyer = {
 };
 
 export const flyers: Flyer[] = [
+  {
+    id: "holiday-support-28-families",
+    src: "/photos/holiday-support-28-families-2026.webp",
+    width: 1024,
+    height: 1536,
+    title: "Help make the holidays special",
+    note: "Supporting 28 local families and seniors",
+    alt: "Help make the holidays special for local seniors and families. HOPE Covenant Kingdom Fellowship International is seeking sponsors, wish-list gifts, toys, gift cards and food baskets to support 28 families. Give by Zelle, Cash App or PayPal.",
+    endsOn: "2026-12-25",
+  },
+  {
+    id: "sacraments-week-2-communion",
+    src: "/photos/sacraments-week-2-communion-2026.webp",
+    width: 1670,
+    height: 941,
+    title: "The Sacraments II — Holy Communion",
+    note: "Six-week virtual course · Tuesdays at 6:00 pm",
+    alt: "The Sacraments II: Holy Communion and the Lord's Supper, Tuesday, November 17 at 6:00 pm. Six-week virtual course from HOPE Covenant Kingdom Fellowship International, taught by Bishop Mikal D. Boddie, D.Div.",
+    endsOn: "2026-12-15",
+  },
   {
     id: "uccc-midwest-gathering",
     src: "/photos/uccc-midwest-gathering-2026.png",

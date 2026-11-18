@@ -1,6 +1,6 @@
 /**
  * The Bishop's teachings from youtube.com/@HopeCKF (channel UCTvJ36o0Gsg111oBAmH5Eng),
- * newest first, as of Nov 16, 2026. Titles are kept in their own capitals; only the
+ * newest first, as of Nov 18, 2026. Titles are kept in their own capitals; only the
  * repeated "Bishop Mikal D. Boddie, D.Div." suffix and extra spaces were trimmed,
  * and "l / ll" in the Sacraments titles were read as the numerals I / II.
  *
@@ -10,6 +10,7 @@
 export type Video = { id: string; title: string; sub?: string; date: string };
 
 export const videos: Video[] = [
+  { id: "74yAwWVHANo", title: "THE SACRAMENTS — WEEK 2", sub: "Baptism", date: "2026-11-17" },
   { id: "z_SUjnchZXM", title: "THE SACRAMENTS I", sub: "Holy Communion • The Lord’s Supper", date: "2026-11-12" },
   { id: "KH0tSn-KaoY", title: "THE SACRAMENTS II", sub: "Holy Communion • The Lord’s Supper", date: "2026-11-12" },
   { id: "aFhlE1JZuPo", title: "THE SPIRIT OF ICHABOD IN THE CHURCH", date: "2026-11-04" },

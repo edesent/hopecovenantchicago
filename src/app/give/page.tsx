@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import PageHero from "@/components/PageHero";
 import Link from "next/link";
 import Phone from "@/components/Phone";
@@ -24,6 +25,38 @@ export default function Give() {
             courses running, and reaching the neighborhood with real help.
           </p>
       </PageHero>
+
+      <section className="royal-field-flat text-white">
+        <div className="mx-auto grid max-w-5xl items-center gap-10 px-5 py-16 md:grid-cols-[0.9fr_1.1fr] md:py-20">
+          <div className="flex justify-center" data-reveal>
+            <Image
+              src="/photos/holiday-support-28-families-2026.webp"
+              alt="Help make the holidays special for local seniors and families. HOPE Covenant Kingdom Fellowship International is seeking sponsors, wish-list gifts, toys, gift cards and food baskets to support 28 families."
+              width={1024}
+              height={1536}
+              sizes="(min-width: 768px) 400px, 90vw"
+              className="w-full max-w-[400px] rounded-sm border border-gold/60 shadow-[0_18px_40px_rgba(0,0,0,0.35)]"
+            />
+          </div>
+          <div data-reveal>
+            <p className="eyebrow text-gold-light/85">Holiday outreach</p>
+            <h2 className="display pt-5 text-[clamp(1.8rem,4.8vw,2.8rem)] leading-tight">
+              Help 28 families experience a joyful holiday.
+            </h2>
+            <p className="max-w-2xl pt-5 leading-relaxed text-white/80">
+              We are welcoming sponsors, wish-list gifts, toys, Walmart or grocery gift cards,
+              and food baskets for local seniors and families across Chicago and nearby communities.
+            </p>
+            <p className="pt-5 leading-relaxed text-white/80">
+              Use any giving method below and note <strong className="text-gold-light">Holiday outreach</strong>,
+              or call us to arrange a physical donation.
+            </p>
+            <p className="pt-8">
+              <Phone className="font-semibold text-gold-light underline decoration-gold underline-offset-4" />
+            </p>
+          </div>
+        </div>
+      </section>
 
       <section className="bg-paper">
         <div className="mx-auto max-w-3xl px-5 py-16 md:py-20">
