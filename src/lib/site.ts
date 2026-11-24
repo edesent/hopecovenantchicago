@@ -313,6 +313,15 @@ export type Flyer = {
 
 export const flyers: Flyer[] = [
   {
+    id: "community-outreach-humanitarian-assistance",
+    src: "/photos/community-outreach-humanitarian-assistance.webp",
+    width: 1024,
+    height: 1536,
+    title: "Community Outreach & Humanitarian Assistance",
+    note: "Food, housing, health, treatment and benefits support",
+    alt: "Hope Covenant Kingdom Fellowship International Community Outreach and Humanitarian Assistance Program. Everyone is welcome. Available services and resources include food and meals, mental health counseling, housing support, benefits assistance, substance use treatment, and physical health screenings. Churches, community organizations, and providers are invited to partner. Contact hopeckf@gmail.com.",
+  },
+  {
     id: "holiday-support-28-families",
     src: "/photos/holiday-support-28-families-2026.webp",
     width: 1024,
