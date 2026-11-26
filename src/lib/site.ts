@@ -332,6 +332,7 @@ export const flyers: Flyer[] = [
     title: "A website that looks like your church",
     note: "$29 a month · Call or text Eli: (401) 486-6714",
     alt: "A website that looks like your church, $29 a month, the rate you start at is the rate you keep. Online giving with Givelify, Cash App or Tithe.ly. Your sermons from YouTube or Facebook. A free design for your church before you pay anything. See the churches: elijahdesent.com/church-websites. Call or text Eli: (401) 486-6714.",
+    href: "https://www.elijahdesent.com/church-websites",
   },
   {
     id: "happy-thanksgiving-bishops-2026",
