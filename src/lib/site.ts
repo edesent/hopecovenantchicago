@@ -313,6 +313,25 @@ export type Flyer = {
 
 export const flyers: Flyer[] = [
   {
+    id: "pre-christmas-coat-giveaway-2026",
+    src: "/photos/pre-christmas-coat-giveaway-2026.webp",
+    width: 550,
+    height: 825,
+    title: "Pre-Christmas Coat GiveAWay",
+    note: "Sat, Dec 12 · 11am–3pm · Trinity Outreach",
+    alt: "Hope Covenant Kingdom Fellowship International Pre-Christmas Coat GiveAWay, Saturday, December 12, 2026, 11:00am to 3:00pm, Trinity Outreach, 5416 South Calumet Ave., Chicago, Illinois 60615. Coats issued first come first serve. Sponsors: Bishop Mikal D. Boddie, D.Div., Overseer Mary Banks-Moore, Elder John Moore.",
+    endsOn: "2026-12-13",
+  },
+  {
+    id: "eli-church-website-ad",
+    src: "/photos/eli-church-website-ad.webp",
+    width: 700,
+    height: 905,
+    title: "A website that looks like your church",
+    note: "$29 a month · Call or text Eli: (401) 486-6714",
+    alt: "A website that looks like your church, $29 a month, the rate you start at is the rate you keep. Online giving with Givelify, Cash App or Tithe.ly. Your sermons from YouTube or Facebook. A free design for your church before you pay anything. See the churches: elijahdesent.com/church-websites. Call or text Eli: (401) 486-6714.",
+  },
+  {
     id: "happy-thanksgiving-bishops-2026",
     src: "/photos/happy-thanksgiving-bishops-2026.webp",
     width: 800,
