@@ -26,14 +26,9 @@ export default function Flyers({ items }: { items: Flyer[] }) {
   return (
     <>
       <ul className="-mx-5 flex snap-x snap-mandatory gap-5 overflow-x-auto px-5 pb-4 md:mx-0 md:grid md:grid-cols-3 md:gap-8 md:overflow-visible md:px-0">
-        {items.map((f) => (
-          <li key={f.id} className="w-[78%] shrink-0 snap-center sm:w-[46%] md:w-auto">
-            <button
-              type="button"
-              onClick={() => setOpen(f)}
-              className="group block w-full text-left"
-              aria-label={`View full size: ${f.title}`}
-            >
+        {items.map((f) => {
+          const media = (
+            <>
               <span className="block overflow-hidden rounded-sm border border-gold/60 bg-royal-ink shadow-[0_14px_30px_rgba(0,0,0,0.35)]">
                 <Image
                   src={f.src}
@@ -48,9 +43,33 @@ export default function Flyers({ items }: { items: Flyer[] }) {
                 {f.title}
               </span>
               {f.note && <span className="time block pt-1 text-sm text-gold-light/85">{f.note}</span>}
-            </button>
-          </li>
-        ))}
+            </>
+          );
+          return (
+            <li key={f.id} className="w-[78%] shrink-0 snap-center sm:w-[46%] md:w-auto">
+              {f.href ? (
+                <a
+                  href={f.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group block w-full text-left"
+                  aria-label={`${f.title} — opens ${f.href}`}
+                >
+                  {media}
+                </a>
+              ) : (
+                <button
+                  type="button"
+                  onClick={() => setOpen(f)}
+                  className="group block w-full text-left"
+                  aria-label={`View full size: ${f.title}`}
+                >
+                  {media}
+                </button>
+              )}
+            </li>
+          );
+        })}
       </ul>
 
       {open &&
