@@ -309,6 +309,8 @@ export type Flyer = {
   note?: string;
   alt: string;
   endsOn?: string;
+  /** If set, the flyer links out to this URL instead of opening full size. */
+  href?: string;
 };
 
 export const flyers: Flyer[] = [
